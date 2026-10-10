@@ -914,3 +914,7 @@ html { scroll-padding-top: 90px; }
 
 /* szekcióhatár: fele olyan hosszú és vékonyabb vonal */
 #main > .section + .section::before { height: 32px; width: .6px; opacity: .85; }
+
+/* „Az ellátás hatásai” doboz: a cím és az alcímek feketék (kevésbé színes; Geza, 2026-10-10) */
+.effects__title,
+.effects__body h3 { color: #1a1a1a; }
