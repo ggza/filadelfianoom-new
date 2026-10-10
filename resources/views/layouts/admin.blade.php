@@ -26,7 +26,7 @@
     <a href="{{ route('admin.users.index') }}" @if(str_starts_with($r, 'admin.users')) aria-current="page" @endif>Felhasználók</a>
   </nav>
   <div class="admin-me">
-    <a href="{{ route('home') }}" target="_blank" rel="noopener">Oldal megnyitása ↗</a>
+    <a href="{{ route('home') }}" target="_blank" rel="noopener">Főoldal ↗</a>
     <form method="post" action="{{ route('logout') }}">@csrf<button type="submit">Kilépés</button></form>
   </div>
 </header>

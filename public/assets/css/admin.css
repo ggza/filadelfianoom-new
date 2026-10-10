@@ -16,7 +16,7 @@ h2 { font-size: 1.3rem; margin: 0 0 .8rem; }
 
 /* fejléc */
 .admin-top { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1.4rem; padding: .7rem 1.4rem; background: var(--lav); color: #fff; position: sticky; top: 0; z-index: 10; }
-.admin-brand { display: inline-flex; align-items: center; gap: .55rem; color: #c9cf96; letter-spacing: .06em; font-family: var(--f-display); font-weight: 700; font-size: 1.15rem; text-decoration: none; }
+.admin-brand { display: inline-flex; align-items: center; gap: .55rem; color: #fff; letter-spacing: .06em; font-family: var(--f-display); font-weight: 700; font-size: 1.15rem; text-decoration: none; }
 .admin-brand img { width: 38px; height: 38px; background: #fff; border-radius: 50%; padding: 4px; }
 .admin-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: .2rem; flex: 1; }
 @media (min-width: 1200px) {
