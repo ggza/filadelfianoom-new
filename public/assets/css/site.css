@@ -30,7 +30,7 @@
 
   /* időzítések a CSS-ben (a JS TIMING objektuma írja felül) */
   --t-bg-fade: 2.4s;
-  --t-photo-fade: 1.2s;
+  --t-photo-fade: .6s;
   --t-slogan-in: 1.4s;
   --t-slogan-out: 1s;
 }
