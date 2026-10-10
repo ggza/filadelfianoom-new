@@ -132,7 +132,7 @@ svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; 
 .primary-nav a[data-nav],
 .nav-link {
   position: relative; background: none; border: 0; padding: .4rem 0;
-  font-family: var(--f-display); font-weight: 600; font-size: 1.12rem; letter-spacing: 0; text-decoration: none;
+  font-family: "Nunito", var(--f-body); font-weight: 600; font-size: calc(1.12rem - 1pt); /* Nunito, 1 ponttal kisebb (Geza, 2026-10-10) */ letter-spacing: 0; text-decoration: none;
   color: var(--green-ink); transition: color .2s ease; white-space: nowrap;
 }
 .primary-nav a[data-nav]:hover,
@@ -651,7 +651,7 @@ dialog::backdrop { background: rgba(38, 30, 52, .55); -webkit-backdrop-filter: b
   .primary-nav__side { flex-direction: column; align-items: stretch !important; gap: 0 !important; }
   .primary-nav__side li { border-bottom: 1px solid rgba(179,171,127,.4); }
   .primary-nav__side--right li:last-child { border-bottom: 0; }
-  .primary-nav a[data-nav], .nav-link { display: block; width: 100%; text-align: left; font-family: var(--f-display); font-size: 1.35rem; padding: .7rem 0; }
+  .primary-nav a[data-nav], .nav-link { display: block; width: 100%; text-align: left; font-family: "Nunito", var(--f-body); font-size: calc(1.35rem - 1pt); padding: .7rem 0; }
   .primary-nav a[data-nav]::after, .nav-link::after { display: none; }
   .primary-nav__side .pill { margin-top: 1.2rem; }
 
