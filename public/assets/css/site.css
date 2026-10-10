@@ -7,9 +7,10 @@
   --green-ink: #2e4a33;      /* címsorok */
   --olive: #485934;          /* sötét olívazöld */
   --olive-night: #333f25;
-  --lav: #5e4282;            /* mély levendulalila */
-  --lav-soft: #d7c1dd;       /* világos levendulalila */
-  --lav-mist: #efe6f1;
+  --lav: #6f5f93;            /* levendula: szövegkiemelés, aláhúzás, díszek (C, 2026-10-10; korábban #5e4282) */
+  --lav-pastel: #cdbfdf;     /* pasztell levendula: gombok, ablakfejlécek háttere (C) */
+  --lav-soft: #e2d9e8;       /* világos levendula (C; korábban #d7c1dd) */
+  --lav-mist: #f4f0f5;       /* (C; korábban #efe6f1) */
   --sage: #c4d8c1;           /* világos zsályazöld */
   --beige: #b3ab7f;          /* szürkés olívabézs */
   --cream: #e6e2cd;          /* világos krémbézs */
@@ -25,7 +26,7 @@
   --gutter: clamp(16px, 4vw, 40px);
   --radius: 18px;
   --shadow: 0 18px 50px -24px rgba(46, 38, 62, .45);
-  --header-h: 136px;
+  --header-h: 151px; /* 136 → 151: 75 px-es felső sáv (Geza, 2026-10-10) */
 
   /* időzítések a CSS-ben (a JS TIMING objektuma írja felül) */
   --t-bg-fade: 2.4s;
@@ -39,6 +40,7 @@
 *::after { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; scroll-padding-top: 120px; -webkit-text-size-adjust: 100%; }
+@media (min-width: 1101px) { html { scroll-padding-top: 135px; } } /* +15px a magasabb felső sáv miatt */
 body {
   margin: 0;
   font-family: var(--f-body);
@@ -77,7 +79,7 @@ svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; 
 .site-header { position: fixed; inset: 0 0 auto; z-index: 50; transition: transform .4s ease; }
 
 .topbar { background: var(--green-ink); color: #fff; font-size: .85rem; }
-.topbar__in { display: flex; justify-content: space-between; align-items: center; gap: 1rem; min-height: 60px; padding-block: 6px; } /* 60px (Geza, 2026-10-08) */
+.topbar__in { display: flex; justify-content: space-between; align-items: center; gap: 1rem; min-height: 75px; padding-block: 6px; } /* 75px asztali nézetben (Geza, 2026-10-10); mobilon 56px */
 .topbar a { color: #fff; text-decoration: none; opacity: .92; }
 .topbar a:hover { opacity: 1; text-decoration: underline; color: #fff; }
 .topbar__contact { display: flex; gap: 1.4rem; }
@@ -692,3 +694,24 @@ dialog::backdrop { background: rgba(38, 30, 52, .55); -webkit-backdrop-filter: b
 
 /* a Lépések fül végén: tovább a jelentkezési ívhez */
 .steps-more { margin-top: 1.4rem; }
+
+/* ---------- Végleges színek: „C” változat (Geza, 2026-10-10) ----------
+   pasztell levendula gombok sötétzöld felirattal (a pasztellen a fehér olvashatatlan lenne),
+   csendesebb oldal: a Galéria háttere papír, a szekciófeliratok zöldek */
+.section--lilac { background: transparent; }
+.section--lilac::before { display: none; }
+.eyebrow { color: var(--green); }
+.tabs [role="tab"][aria-selected="true"] { background: rgba(230, 226, 205, .7); }
+.action:hover { background: var(--cream); color: var(--green-ink); }
+.pill,
+.skip-link,
+.action--form,
+.donate__card--pdf,
+.modal__head { background: var(--lav-pastel); color: var(--green-ink); }
+.pill { box-shadow: 0 8px 20px -12px rgba(80, 64, 110, .6); }
+.pill:hover { background: #bfaed5; color: var(--green-ink); }
+.action.action--form svg, .action.action--form small { color: rgba(46, 74, 51, .8); }
+.modal__head .modal__close { color: var(--green-ink); }
+.donate__card--pdf * { color: inherit; }
+.donate__card--pdf:hover { background: #bfaed5; color: var(--green-ink); }
+.modal__close { border-color: rgba(46, 74, 51, .35); }
