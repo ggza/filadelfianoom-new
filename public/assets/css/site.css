@@ -922,3 +922,6 @@ html { scroll-padding-top: 90px; }
 .effects .prose .ico, .effects .ico { background: var(--olive); } /* a doboz címének korábbi sötét olívazöldje */
 .effects .deco-icons svg { stroke: var(--olive); }
 .effects .deco-icons svg .f { fill: var(--sage); }
+
+/* szekciók teteje: fele akkora üres hely (korábban clamp(4.5rem, 9vw, 8rem); Geza, 2026-10-10) */
+.section { padding-top: clamp(2.25rem, 4.5vw, 4rem); }
