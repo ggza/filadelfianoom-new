@@ -917,4 +917,4 @@ html { scroll-padding-top: 90px; }
 
 /* „Az ellátás hatásai” doboz: a cím és az alcímek feketék (kevésbé színes; Geza, 2026-10-10) */
 .effects__title,
-.effects__body h3 { color: #1a1a1a; }
+.effects__body h3 { color: var(--ink); } /* a szövegtörzs feketéje */
