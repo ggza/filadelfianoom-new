@@ -879,3 +879,14 @@ html { scroll-padding-top: 90px; }
   content: ""; display: block; position: absolute; z-index: 1; left: 50%; top: 0; transform: translate(-50%, -50%);
   width: 1px; height: 64px; background: var(--beige);
 }
+
+/* ---------- Hero képváltó (Geza, 2026-10-10) ----------
+   a szlogen kisebb, egy sorban, legfeljebb a képernyő közepéig; a hero képein nincs képfelirat (a Galériában marad) */
+.hero__tag {
+  right: auto; max-width: calc(50vw - var(--gutter)); white-space: nowrap;
+  font-size: clamp(1rem, 2.3vw, 2.3rem);
+}
+.hero__photos figcaption { display: none; }
+@media (max-width: 720px) {
+  .hero__tag { right: auto; max-width: calc(100vw - 2 * var(--gutter)); font-size: 4.6vw; }
+}
