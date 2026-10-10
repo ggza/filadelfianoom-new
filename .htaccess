@@ -1,0 +1,5 @@
+# Minden kérést a public/ mappába irányít, így a projekt többi fájlja (pl. .env) nem érhető el böngészőből.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>

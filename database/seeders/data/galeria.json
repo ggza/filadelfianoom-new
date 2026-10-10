@@ -1,0 +1,101 @@
+{
+ "_note": "Generated from images/webp: the caption is the text in parentheses in the original file name (Hungarian only). caption_ro stays empty until Romanian captions are supplied.",
+ "images": [
+  {
+   "file": "kep-02.webp",
+   "w": 1541,
+   "h": 1021,
+   "caption_hu": "Az új épületszárny szolgálati bejárata",
+   "caption_ro": null,
+   "source": "images/webp/02(Az új épületszárny szolgálati bejárata).webp"
+  },
+  {
+   "file": "kep-03.webp",
+   "w": 1563,
+   "h": 1035,
+   "caption_hu": "A kápolna",
+   "caption_ro": null,
+   "source": "images/webp/03(A kápolna).webp"
+  },
+  {
+   "file": "kep-04.webp",
+   "w": 1600,
+   "h": 1060,
+   "caption_hu": "Az új épület",
+   "caption_ro": null,
+   "source": "images/webp/04(Az új épület).webp"
+  },
+  {
+   "file": "kep-05.webp",
+   "w": 1600,
+   "h": 1060,
+   "caption_hu": "Előtér",
+   "caption_ro": null,
+   "source": "images/webp/05(Előtér).webp"
+  },
+  {
+   "file": "kep-06.webp",
+   "w": 1552,
+   "h": 1037,
+   "caption_hu": "Szobabelső",
+   "caption_ro": null,
+   "source": "images/webp/06(Szobabelső).webp"
+  },
+  {
+   "file": "kep-07.webp",
+   "w": 1600,
+   "h": 1060,
+   "caption_hu": "Fóliaház",
+   "caption_ro": null,
+   "source": "images/webp/07(Fóliaház).webp"
+  },
+  {
+   "file": "kep-08.webp",
+   "w": 1586,
+   "h": 992,
+   "caption_hu": "A régi épület lépcsőfeljárója",
+   "caption_ro": null,
+   "source": "images/webp/08(A régi épület lépcsőfeljárója).webp"
+  },
+  {
+   "file": "kep-09.webp",
+   "w": 1600,
+   "h": 1060,
+   "caption_hu": "Beszélgetés",
+   "caption_ro": null,
+   "source": "images/webp/09(Beszélgetés).webp"
+  },
+  {
+   "file": "kep-10.webp",
+   "w": 1600,
+   "h": 1060,
+   "caption_hu": "A megnyitóra összegyűlt gyülekezet",
+   "caption_ro": null,
+   "source": "images/webp/10(A megnyitóra összegyűlt gyülekezet).webp"
+  },
+  {
+   "file": "kep-11.webp",
+   "w": 1600,
+   "h": 1060,
+   "caption_hu": "Az alapítvány elnöke elvágja a szalagot",
+   "caption_ro": null,
+   "source": "images/webp/11(Az alapítvány elnöke elvágja a szalagot).webp"
+  },
+  {
+   "file": "kep-12.webp",
+   "w": 850,
+   "h": 563,
+   "caption_hu": "Idősek",
+   "caption_ro": null,
+   "source": "images/webp/12(Idősek).webp"
+  },
+  {
+   "file": "kep-13.webp",
+   "w": 1600,
+   "h": 1060,
+   "caption_hu": "Alapítók, vezetők, kuratóriumi tagok",
+   "caption_ro": null,
+   "source": "images/webp/13(Alapítók, vezetők, kuratóriumi tagok).webp"
+  }
+ ]
+}
