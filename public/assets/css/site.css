@@ -768,28 +768,18 @@ html { scroll-padding-top: 75px; }
   .menu-toggle { background: rgba(255, 255, 255, .12); border-color: rgba(255, 255, 255, .35); color: #fff; padding: .5rem .9rem; }
   .topbar__logo { width: 44px; height: 44px; padding: 4px; } /* a 56 px-es sávba férjen */
 }
-/* mobil (≤700 px): a név két sorban, nagyobb betűvel – 1. sor „Filadelfia Noom [logó]”, 2. sor „Idősek Otthona”
-   (Geza, 2026-10-10); a sáv 66 px magas, a nyelvváltó és a hamburger legalább 44 px-es érintési felület */
+/* mobil (≤700 px): a sáv közepén csak a logó, a név nem látszik (a link akadálymentes neve megmarad) (Geza, 2026-10-10);
+   a nyelvváltó és a hamburger legalább 44 px-es érintési felület */
 @media (max-width: 700px) {
-  :root { --header-h: 66px; }
-  html { scroll-padding-top: 66px; }
-  .topbar__in { gap: 8px; grid-template-columns: auto minmax(0, 1fr) auto; padding-block: 4px; }
-  .topbar__name {
-    justify-self: center; flex-wrap: wrap; row-gap: 1px; column-gap: .4em;
-    font-size: clamp(14px, 4.2vw, 17px); text-transform: none; letter-spacing: .01em; line-height: 1.12;
-  }
-  .topbar__name > span:last-child { flex-basis: 100%; text-align: center; }
-  .topbar__logo { width: 30px; height: 30px; padding: 3px; }
+  :root { --header-h: 60px; }
+  html { scroll-padding-top: 60px; }
+  .topbar__in { gap: 8px; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); padding-block: 0; } /* a logó pontosan középen */
+  .topbar__name { justify-self: center; }
+  .topbar__name > span { display: none; }
+  .topbar__logo { width: 50px; height: 50px; padding: 4px; }
   .topbar .lang a { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; padding: 0 .3rem; font-size: .72rem; }
   .menu-toggle { width: 44px; height: 44px; padding: 0; justify-content: center; }
   .menu-toggle__label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  .topbar__name > span:first-child { white-space: nowrap; }
-}
-/* nagyon keskeny telefon (320–360 px): kisebb oldalmargó és logó, hogy az első sor ne törjön */
-@media (max-width: 360px) {
-  .topbar__in { padding-inline: 12px; }
-  .topbar__name { column-gap: .3em; }
-  .topbar__logo { width: 28px; height: 28px; }
 }
 
 /* beúszó panel */
