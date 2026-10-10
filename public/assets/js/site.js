@@ -200,6 +200,18 @@
     });
   }
 
+  /* ---------------- „Tovább” nyíl minden szekció végén, a következő szekcióhoz (Geza, 2026-10-10) ---------------- */
+  var heroDown = $('.hero__down');
+  var sections = $$('#main > section.section[id]');
+  if (heroDown) {
+    sections.slice(0, -1).forEach(function (sec, i) {
+      var down = heroDown.cloneNode(true);
+      down.className = 'section__down';
+      down.setAttribute('href', '#' + sections[i + 1].id);
+      sec.appendChild(down);
+    });
+  }
+
   /* ---------------- Horgonyok: görgetés + fókusz ---------------- */
   $$('a[href^="#"]').forEach(function (a) {
     a.addEventListener('click', function (ev) {

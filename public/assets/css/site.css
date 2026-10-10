@@ -295,6 +295,18 @@ svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; 
 .intro-done .hero__down { opacity: 1; }
 @keyframes bob { 50% { transform: translateY(5px); } }
 
+/* „Tovább” nyíl a szekciók végén (a site.js teszi be, a hero nyíl mintájára) */
+.section__down {
+  position: absolute; z-index: 2; left: 50%; bottom: clamp(1rem, 2.5vw, 1.8rem); transform: translateX(-50%);
+  display: grid; justify-items: center; color: var(--green-ink); text-decoration: none; opacity: .75;
+  font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .16em;
+  transition: opacity .2s ease, color .2s ease;
+}
+.section__down svg { width: 26px; height: 26px; animation: bob 2s ease-in-out infinite; }
+.section__down:hover { opacity: 1; color: var(--lav); }
+.section--green .section__down { color: #fff; }
+.section--green .section__down:hover { color: var(--lav-soft); }
+
 /* ---------- Szekciók ---------- */
 .section { position: relative; padding-block: clamp(4.5rem, 9vw, 8rem); outline: none; }
 .section--cream { background: rgba(230, 226, 205, .55); }
