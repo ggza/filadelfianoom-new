@@ -11,6 +11,8 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+        // Cloudflare mögött az eredeti protokollt (https) a proxy fejléceiből vegye
+        $middleware->trustProxies(at: '*');
         $middleware->web(append: [\App\Http\Middleware\SetLocale::class]);
         $middleware->alias([
             'admin' => \App\Http\Middleware\EnsureAdmin::class,
