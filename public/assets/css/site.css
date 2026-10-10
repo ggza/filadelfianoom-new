@@ -918,3 +918,7 @@ html { scroll-padding-top: 90px; }
 /* „Az ellátás hatásai” doboz: a cím és az alcímek feketék (kevésbé színes; Geza, 2026-10-10) */
 .effects__title,
 .effects__body h3 { color: var(--ink); } /* a szövegtörzs feketéje */
+/* ugyanebben a dobozban az ikonok (listajelek és díszikonok) sötétzöldek */
+.effects .prose .ico, .effects .ico { background: var(--olive); } /* a doboz címének korábbi sötét olívazöldje */
+.effects .deco-icons svg { stroke: var(--olive); }
+.effects .deco-icons svg .f { fill: var(--sage); }
