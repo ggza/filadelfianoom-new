@@ -14,35 +14,18 @@
 
 @section('body_class', 'is-intro')
 
-@section('mainbar')
-  <div class="mainbar">
-    <div class="wrap mainbar__in">
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
-        <span class="menu-toggle__bars" aria-hidden="true"></span><span class="menu-toggle__label">{{ __('site.menu') }}</span>
-      </button>
+@section('menu_items')
+  @if ($sec('fundatia'))<li><a href="#fundatia" data-nav>{{ __('site.nav.fundatia') }}</a></li>@endif
+  @if ($sec('servicii'))<li><a href="#servicii" data-nav>{{ __('site.nav.servicii') }}</a></li>@endif
+  @if ($gallery->count())<li><a href="#galerie" data-nav>{{ __('site.nav.galerie') }}</a></li>@endif
+  @if ($posts->count())<li><a href="#stiri" data-nav>{{ __('site.nav.stiri') }}</a></li>@endif
+  @if ($sec('suport'))<li><a href="#suport" data-nav>{{ __('site.nav.suport') }}</a></li>@endif
+  @if ($sec('contact'))<li><a href="#contact" data-nav>{{ __('site.nav.contact') }}</a></li>@endif
+  @if ($hasReport)<li><button type="button" class="nav-link" data-open="dlg-report">{{ __('site.nav_report') }}</button></li>@endif
+@endsection
 
-      <a class="brand" href="{{ route('home') }}" aria-label="{{ __('site.site_name') }}">
-        <img src="{{ asset('assets/img/logo.webp') }}" width="180" height="180" alt="">
-      </a>
-
-      <nav id="primary-nav" class="primary-nav" aria-label="{{ __('site.menu') }}">
-        <ul class="primary-nav__side primary-nav__side--left">
-          @if ($sec('fundatia'))<li><a href="#fundatia" data-nav>{{ __('site.nav.fundatia') }}</a></li>@endif
-          @if ($sec('servicii'))<li><a href="#servicii" data-nav>{{ __('site.nav.servicii') }}</a></li>@endif
-          @if ($gallery->count())<li><a href="#galerie" data-nav>{{ __('site.nav.galerie') }}</a></li>@endif
-          @if ($posts->count())<li><a href="#stiri" data-nav>{{ __('site.nav.stiri') }}</a></li>@endif
-        </ul>
-        <ul class="primary-nav__side primary-nav__side--right">
-          @if ($sec('suport'))<li><a href="#suport" data-nav>{{ __('site.nav.suport') }}</a></li>@endif
-          @if ($sec('contact'))<li><a href="#contact" data-nav>{{ __('site.nav.contact') }}</a></li>@endif
-          @if ($hasReport)
-            <li><button type="button" class="nav-link" data-open="dlg-report">{{ __('site.nav_report') }}</button></li>
-          @endif
-          <li><button type="button" class="pill" data-open="dlg-apply">{{ __('site.nav_apply') }}</button></li>
-        </ul>
-      </nav>
-    </div>
-  </div>
+@section('menu_cta')
+  <div class="offcanvas__cta"><button type="button" class="pill pill--big" data-open="dlg-apply">{{ __('site.nav_apply') }}</button></div>
 @endsection
 
 @section('content')

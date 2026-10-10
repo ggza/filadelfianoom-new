@@ -715,3 +715,120 @@ dialog::backdrop { background: rgba(38, 30, 52, .55); -webkit-backdrop-filter: b
 .donate__card--pdf * { color: inherit; }
 .donate__card--pdf:hover { background: #bfaed5; color: var(--green-ink); }
 .modal__close { border-color: rgba(46, 74, 51, .35); }
+
+/* ======================================================================
+   Hamburger-menü (próba, „hamburger-menu” ág, Geza, 2026-10-10)
+   Egyetlen 75 px-es (mobilon 56 px-es) sáv: balra a nyelvváltó, középen „Filadelfia Noom [logó] Idősek Otthona”,
+   jobbra a hamburger gomb; minden menüpont a jobbról beúszó panelen. A régi második menüsor (logókör) megszűnt.
+   ====================================================================== */
+:root { --header-h: 75px; }
+html { scroll-padding-top: 75px; }
+@media (min-width: 1101px) { html { scroll-padding-top: 75px; } }
+@media (max-width: 1100px) {
+  :root { --header-h: 56px; }
+  html { scroll-padding-top: 56px; }
+}
+
+.topbar__in {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center;
+  gap: .8rem; min-height: var(--header-h);
+}
+.topbar .lang { justify-self: start; }
+.topbar .menu-toggle { justify-self: end; }
+
+/* intézménynév a logóval az első két szó után */
+.topbar__name {
+  display: inline-flex; align-items: center; justify-content: center; gap: .6em;
+  text-align: center; white-space: nowrap; opacity: 1;
+}
+.topbar a.topbar__name:hover { text-decoration: none; color: #c9cf96; }
+.topbar__logo {
+  flex: none; width: 54px; height: 54px; border-radius: 50%; background: #fff; padding: 5px;
+  box-shadow: 0 4px 14px -8px rgba(0, 0, 0, .5);
+}
+
+/* hamburger gomb a sötét sávon */
+.menu-toggle {
+  display: inline-flex; align-items: center; gap: .6rem; cursor: pointer;
+  background: rgba(255, 255, 255, .12); border: 1px solid rgba(255, 255, 255, .35); border-radius: 99px;
+  padding: .55rem 1.05rem; color: #fff; font-family: "Nunito", var(--f-body); font-weight: 700; font-size: .95rem;
+  transition: background .2s ease;
+}
+.menu-toggle:hover { background: rgba(255, 255, 255, .22); }
+.menu-toggle__bars, .menu-toggle__bars::before, .menu-toggle__bars::after {
+  display: block; width: 18px; height: 2px; background: currentColor; border-radius: 2px; position: relative;
+  transition: transform .3s ease, background .3s ease;
+}
+.menu-toggle__bars::before, .menu-toggle__bars::after { content: ""; position: absolute; left: 0; }
+.menu-toggle__bars::before { top: -6px; }
+.menu-toggle__bars::after { top: 6px; }
+
+@media (max-width: 1100px) {
+  .topbar__name { text-align: center; }
+  .menu-toggle { background: rgba(255, 255, 255, .12); border-color: rgba(255, 255, 255, .35); color: #fff; padding: .5rem .9rem; }
+  .topbar__logo { width: 44px; height: 44px; padding: 4px; } /* a 56 px-es sávba férjen */
+}
+@media (max-width: 700px) {
+  .topbar__in { gap: .5rem; grid-template-columns: auto minmax(0, 1fr) auto; }
+  .topbar__name { justify-self: center; font-size: clamp(.68rem, 2.9vw, 1rem); text-transform: none; letter-spacing: 0; gap: .35em; } /* mobilon kisbetűs, hogy egy sorban elférjen */
+  .topbar__logo { width: 34px; height: 34px; padding: 3px; }
+  .topbar .lang a { padding: .4rem .5rem; font-size: .7rem; }
+  .menu-toggle { padding: .55rem .6rem; }
+  .menu-toggle__label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}
+
+/* beúszó panel */
+.offcanvas { position: fixed; inset: 0; z-index: 80; }
+.offcanvas[hidden] { display: none; }
+.offcanvas__backdrop {
+  position: absolute; inset: 0; background: rgba(28, 34, 26, .5); opacity: 0; transition: opacity .3s ease;
+}
+.offcanvas__panel {
+  position: absolute; top: 0; right: 0; bottom: 0; width: min(380px, 88vw);
+  display: flex; flex-direction: column; overflow-y: auto; overscroll-behavior: contain;
+  background: var(--paper); box-shadow: -20px 0 50px -20px rgba(0, 0, 0, .45);
+  transform: translateX(100%); transition: transform .3s cubic-bezier(.2, .7, .2, 1); outline: none;
+}
+.menu-open .offcanvas__backdrop { opacity: 1; }
+.menu-open .offcanvas__panel { transform: none; }
+
+.offcanvas__head {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 0 1.4rem; min-height: var(--header-h); background: var(--green-ink); color: #fff;
+}
+.offcanvas__title { font-family: "Nunito", var(--f-body); font-weight: 800; text-transform: uppercase; letter-spacing: .14em; font-size: .85rem; }
+.offcanvas__close {
+  width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, .45); background: transparent; color: #fff;
+}
+.offcanvas__close:hover { background: #fff; color: var(--green-ink); }
+.offcanvas__close svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+
+.offcanvas__nav ul { list-style: none; margin: 0; padding: .8rem 1.4rem; }
+.offcanvas__nav li { border-bottom: 1px solid rgba(179, 171, 127, .4); }
+.offcanvas__nav a,
+.offcanvas__nav .nav-link {
+  display: block; width: 100%; padding: .85rem 0 .85rem .9rem; border: 0; border-left: 3px solid transparent; background: none;
+  font-family: "Nunito", var(--f-body); font-weight: 600; font-size: 1.2rem; text-align: left; text-decoration: none;
+  color: #1a1a1a; cursor: pointer; transition: color .2s ease, border-color .2s ease;
+}
+.offcanvas__nav .nav-link::after { display: none; }
+.offcanvas__nav a:hover,
+.offcanvas__nav .nav-link:hover,
+.offcanvas__nav a[aria-current] { color: var(--lav); border-left-color: var(--lav); }
+
+.offcanvas__cta { padding: .6rem 1.4rem 1.2rem; }
+.offcanvas__cta .pill { width: 100%; justify-content: center; }
+
+.offcanvas__foot {
+  margin-top: auto; display: grid; gap: .2rem; padding: 1.1rem 1.4rem 1.4rem;
+  border-top: 1px solid rgba(179, 171, 127, .5); background: rgba(230, 226, 205, .45);
+}
+.offcanvas__foot a,
+.offcanvas__foot button {
+  display: flex; align-items: center; gap: .6rem; padding: .45rem 0; border: 0; background: none; cursor: pointer;
+  font: inherit; font-size: .95rem; font-weight: 600; color: var(--green-ink); text-decoration: none; text-align: left;
+}
+.offcanvas__foot a:hover, .offcanvas__foot button:hover { color: var(--lav); text-decoration: underline; }
+.offcanvas__foot svg { width: 18px; height: 18px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.offcanvas__foot form { margin: 0; }
