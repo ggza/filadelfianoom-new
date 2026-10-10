@@ -853,3 +853,29 @@ html { scroll-padding-top: 75px; }
 .offcanvas__foot a:hover, .offcanvas__foot button:hover { color: var(--lav); text-decoration: underline; }
 .offcanvas__foot svg { width: 18px; height: 18px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .offcanvas__foot form { margin: 0; }
+
+/* ---------- Magasabb zöld sáv (Geza, 2026-10-10): asztalon 90 px, tableten és mobilon 80 px ---------- */
+:root { --header-h: 90px; }
+html { scroll-padding-top: 90px; }
+@media (min-width: 1101px) { html { scroll-padding-top: 90px; } }
+.topbar__logo { width: 64px; height: 64px; padding: 6px; }
+@media (max-width: 1100px) {
+  :root { --header-h: 80px; }
+  html { scroll-padding-top: 80px; }
+  .topbar__logo { width: 56px; height: 56px; padding: 5px; }
+}
+@media (max-width: 700px) {
+  :root { --header-h: 80px; }
+  html { scroll-padding-top: 80px; }
+  .topbar__logo { width: 58px; height: 58px; padding: 5px; }
+}
+
+/* ---------- Szekcióátmenetek egységesen (Geza, 2026-10-10) ----------
+   minden szekcióhatáron ugyanaz a vékony függőleges bézs vonal; a hátterek váltakoznak (papír / krém),
+   így két szomszédos szekció sosem folyik egybe – akkor sem, ha egy szekció (pl. Hírek) épp nem jelenik meg */
+#main > .section:not(.section--green) { background: transparent; }
+#main > .section:not(.section--green):nth-of-type(even) { background: rgba(230, 226, 205, .55); }
+#main > .section + .section::before {
+  content: ""; display: block; position: absolute; z-index: 1; left: 50%; top: 0; transform: translate(-50%, -50%);
+  width: 1px; height: 64px; background: var(--beige);
+}
