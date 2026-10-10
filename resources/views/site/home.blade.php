@@ -61,7 +61,7 @@
     @endforeach
   </h1>
 
-  <p class="hero__tag" aria-hidden="true">{{ implode(' ', __('site.slogan')) }}</p>
+  <p class="hero__tag" aria-hidden="true">@foreach (__('site.slogan') as $line)<span>{{ $line }}</span>@endforeach</p>
 
   <button type="button" class="skip-intro" data-skip-intro>{{ __('site.skip_intro') }}</button>
   <a class="hero__down" href="#fundatia"><span>{{ __('site.down') }}</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>

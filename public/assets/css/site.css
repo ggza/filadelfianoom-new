@@ -30,7 +30,7 @@
 
   /* időzítések a CSS-ben (a JS TIMING objektuma írja felül) */
   --t-bg-fade: 2.4s;
-  --t-photo-fade: .6s;
+  --t-photo-fade: 1.2s;
   --t-slogan-in: 1.4s;
   --t-slogan-out: 1s;
 }
@@ -890,3 +890,27 @@ html { scroll-padding-top: 90px; }
 @media (max-width: 720px) {
   .hero__tag { right: auto; max-width: calc(100vw - 2 * var(--gutter)); font-size: 4.6vw; }
 }
+
+/* ---------- Hero és szekcióhatár finomítás (Geza, 2026-10-10, 11:10 után) ---------- */
+/* szlogen: a három mondat egymás alatt, balra igazítva; a blokk alja egy vonalban a jobb oldali képváltó-gombok aljával */
+.hero__tag {
+  right: auto; max-width: none; bottom: 36px; line-height: 1.12;
+  font-size: clamp(1rem, 2.3vw, 2.3rem);
+}
+.hero__tag span { display: block; white-space: nowrap; }
+@media (max-width: 720px) {
+  /* mobilon a gombok bal oldalt vannak, ezért a szlogen föléjük kerül */
+  .hero__tag { right: auto; max-width: none; bottom: 96px; font-size: clamp(1.1rem, 5.2vw, 1.5rem); }
+}
+
+/* képváltó gombjai: gombstílus nélkül, csak az ikon; 46×46 px-es kattintható terület és látható fókuszkeret marad */
+.hero .carousel__controls .round {
+  background: none; border: 0; -webkit-backdrop-filter: none; backdrop-filter: none; border-radius: 8px;
+  filter: drop-shadow(0 1px 4px rgba(0, 0, 0, .45));
+}
+.hero .carousel__controls .round:hover { background: none; color: var(--lav-soft); }
+.hero .carousel__controls .round:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.hero .carousel__controls .round svg { width: 24px; height: 24px; }
+
+/* szekcióhatár: fele olyan hosszú és vékonyabb vonal */
+#main > .section + .section::before { height: 32px; width: .6px; opacity: .85; }
