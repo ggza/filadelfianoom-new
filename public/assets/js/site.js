@@ -187,17 +187,10 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  /* ---------------- Mobilmenü ---------------- */
-  var toggle = $('.menu-toggle');
+  /* ---------------- Beúszó menü (menu.js) ---------------- */
+  // csak zárni kell innen: menüpontra kattintáskor görgetés előtt, és modal nyitásakor
   function setNav(open) {
-    body.classList.toggle('nav-open', open);
-    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-  }
-  if (toggle) {
-    toggle.addEventListener('click', function () { setNav(!body.classList.contains('nav-open')); });
-    document.addEventListener('keydown', function (ev) {
-      if (ev.key === 'Escape' && body.classList.contains('nav-open')) { setNav(false); toggle.focus(); }
-    });
+    if (!open && window.FilaMenu) window.FilaMenu.close(false);
   }
 
   /* ---------------- Horgonyok: görgetés + fókusz ---------------- */
@@ -238,6 +231,8 @@
   function openDialog(dlg, trigger) {
     if (!dlg) return;
     lastTrigger = trigger || document.activeElement;
+    // a beúszó menüből nyitva a fókusz bezáráskor a hamburger gombra térjen vissza (a menü addigra rejtett)
+    if (lastTrigger && lastTrigger.closest && lastTrigger.closest('#site-menu')) lastTrigger = $('.menu-toggle');
     setNav(false);
     finishIntro();
     if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
