@@ -2,7 +2,7 @@
 @if (\App\Rules\Turnstile::enabled())
   @php($bag = $bag ?? null)
   <div class="field {{ $class ?? '' }} @if($bag && $bag->has('cf-turnstile-response')) field--err @endif">
-    <div class="cf-turnstile" data-sitekey="{{ config('services.turnstile.site_key') }}" data-language="{{ app()->getLocale() }}"></div>
+    <div class="cf-turnstile" data-sitekey="{{ config('services.turnstile.site_key') }}" data-language="{{ app()->getLocale() }}" data-appearance="interaction-only"></div>
     @if ($bag && $bag->has('cf-turnstile-response'))<small class="field__err">{{ $bag->first('cf-turnstile-response') }}</small>@endif
   </div>
   @once

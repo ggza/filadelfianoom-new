@@ -54,7 +54,7 @@ return [
     'contact_message' => 'Mesaj',
     'contact_consent' => 'Sunt de acord ca datele mele să fie folosite pentru a răspunde la mesaj.',
     'contact_sent'    => 'Vă mulțumim pentru mesaj! Vă vom răspunde în curând.',
-    'captcha_failed'  => 'Verificarea automată nu a reușit. Vă rugăm să așteptați bifa în câmpul de verificare și să trimiteți din nou.',
+    'captcha_failed'  => 'Verificarea automată de securitate nu a reușit. Vă rugăm să așteptați câteva secunde și să trimiteți din nou.',
     'to_top'     => 'Sus',
     'read_more'  => 'Citește mai departe',
 ];

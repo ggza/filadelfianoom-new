@@ -54,7 +54,7 @@ return [
     'contact_message' => 'Üzenet',
     'contact_consent' => 'Hozzájárulok, hogy a megadott adataimat a kérdésem megválaszolásához felhasználják.',
     'contact_sent'    => 'Köszönjük az üzenetét! Hamarosan válaszolunk.',
-    'captcha_failed'  => 'Az automatikus ellenőrzés nem sikerült. Kérjük, várja meg a pipát az ellenőrző mezőben, majd küldje el újra.',
+    'captcha_failed'  => 'Az automatikus biztonsági ellenőrzés nem sikerült. Kérjük, várjon néhány másodpercet, majd küldje el újra.',
     'to_top'     => 'Fel',
     'read_more'  => 'Tovább olvasom',
 ];
