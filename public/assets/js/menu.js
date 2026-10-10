@@ -31,7 +31,7 @@
     body.classList.remove('menu-open');
     body.style.overflow = '';
     toggle.setAttribute('aria-expanded', 'false');
-    closeTimer = setTimeout(function () { menu.hidden = true; }, reduceMotion ? 0 : 320);
+    closeTimer = setTimeout(function () { menu.hidden = true; }, reduceMotion ? 0 : 470);
     if (returnFocus) toggle.focus({ preventScroll: true });
   }
 
