@@ -133,7 +133,7 @@ svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; 
 .nav-link {
   position: relative; background: none; border: 0; padding: .4rem 0;
   font-family: "Nunito", var(--f-body); font-weight: 600; font-size: calc(1.12rem - 1pt); /* Nunito, 1 ponttal kisebb (Geza, 2026-10-10) */ letter-spacing: 0; text-decoration: none;
-  color: var(--green-ink); transition: color .2s ease; white-space: nowrap;
+  color: #1a1a1a; /* fekete menü (Geza, 2026-10-10) */ transition: color .2s ease; white-space: nowrap;
 }
 .primary-nav a[data-nav]:hover,
 .nav-link:hover { color: var(--lav); }
@@ -146,15 +146,15 @@ svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; 
 .primary-nav a[data-nav][aria-current]::after,
 .nav-link:hover::after { transform: scaleX(1); }
 .primary-nav a[data-nav][aria-current] { color: var(--lav); }
-/* Geza, 2026-10-08: a képváltó fölött (átlátszó fejléc) fehér menü; görgetés után a krém sávon marad a zöld */
+/* Geza, 2026-10-10: a képváltó fölött is fekete menü (korábban fehér); világos árnyék az olvashatóságért */
 @media (min-width: 1101px) {
   .site-header:not(.is-solid) .primary-nav a[data-nav],
-  .site-header:not(.is-solid) .nav-link { color: #fff; text-shadow: 0 1px 12px rgba(20, 28, 16, .45); }
+  .site-header:not(.is-solid) .nav-link { color: #1a1a1a; text-shadow: 0 0 10px rgba(255, 255, 255, .7); }
   .site-header:not(.is-solid) .primary-nav a[data-nav]:hover,
   .site-header:not(.is-solid) .primary-nav a[data-nav][aria-current],
-  .site-header:not(.is-solid) .nav-link:hover { color: var(--lav-soft); }
+  .site-header:not(.is-solid) .nav-link:hover { color: var(--lav); }
   .site-header:not(.is-solid) .primary-nav a[data-nav]::after,
-  .site-header:not(.is-solid) .nav-link::after { background: var(--lav-soft); }
+  .site-header:not(.is-solid) .nav-link::after { background: var(--lav); }
 }
 
 /* a logó: középen, 50%-os fehér körben */
