@@ -747,39 +747,45 @@ html { scroll-padding-top: 75px; }
   box-shadow: 0 4px 14px -8px rgba(0, 0, 0, .5);
 }
 
-/* hamburger gomb a sötét sávon */
+/* hamburger: csak az ikon, gombstílus és felirat nélkül; 44×44 px-es láthatatlan érintési felület (Geza, 2026-10-10) */
 .menu-toggle {
-  display: inline-flex; align-items: center; gap: .6rem; cursor: pointer;
-  background: rgba(255, 255, 255, .12); border: 1px solid rgba(255, 255, 255, .35); border-radius: 99px;
-  padding: .55rem 1.05rem; color: #fff; font-family: "Nunito", var(--f-body); font-weight: 700; font-size: .95rem;
-  transition: background .2s ease;
+  display: inline-grid; place-items: center; width: 44px; height: 44px; padding: 0; margin-right: -10px;
+  background: none; border: 0; border-radius: 8px; color: #f3efe4; cursor: pointer;
 }
-.menu-toggle:hover { background: rgba(255, 255, 255, .22); }
+.menu-toggle:hover { color: #fff; }
+.menu-toggle:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 .menu-toggle__bars, .menu-toggle__bars::before, .menu-toggle__bars::after {
-  display: block; width: 18px; height: 2px; background: currentColor; border-radius: 2px; position: relative;
+  display: block; width: 26px; height: 2.5px; background: currentColor; border-radius: 2px; position: relative;
   transition: transform .3s ease, background .3s ease;
 }
 .menu-toggle__bars::before, .menu-toggle__bars::after { content: ""; position: absolute; left: 0; }
-.menu-toggle__bars::before { top: -6px; }
-.menu-toggle__bars::after { top: 6px; }
+.menu-toggle__bars::before { top: -8px; }
+.menu-toggle__bars::after { top: 8px; }
+/* nyitva X-szé alakul */
+.menu-toggle[aria-expanded="true"] .menu-toggle__bars { background: transparent; }
+.menu-toggle[aria-expanded="true"] .menu-toggle__bars::before { transform: translateY(8px) rotate(45deg); }
+.menu-toggle[aria-expanded="true"] .menu-toggle__bars::after { transform: translateY(-8px) rotate(-45deg); }
+
+/* nyelvváltó: kompakt, kb. 32 px magas pirula; a linkek láthatatlanul 44 px magas érintési felületet kapnak */
+.topbar .lang { padding: 2px; }
+.topbar .lang a {
+  position: relative; display: inline-flex; align-items: center; justify-content: center;
+  min-height: 28px; padding: 0 .7rem; font-size: 13px; letter-spacing: .06em;
+}
+.topbar .lang a::after { content: ""; position: absolute; inset: -8px 0; }
 
 @media (max-width: 1100px) {
   .topbar__name { text-align: center; }
-  .menu-toggle { background: rgba(255, 255, 255, .12); border-color: rgba(255, 255, 255, .35); color: #fff; padding: .5rem .9rem; }
   .topbar__logo { width: 44px; height: 44px; padding: 4px; } /* a 56 px-es sávba férjen */
 }
-/* mobil (≤700 px): a sáv közepén csak a logó, a név nem látszik (a link akadálymentes neve megmarad) (Geza, 2026-10-10);
-   a nyelvváltó és a hamburger legalább 44 px-es érintési felület */
+/* mobil (≤700 px): a sáv közepén csak a logó, a név nem látszik (a link akadálymentes neve megmarad); 72 px-es sáv (Geza, 2026-10-10) */
 @media (max-width: 700px) {
-  :root { --header-h: 60px; }
-  html { scroll-padding-top: 60px; }
+  :root { --header-h: 72px; }
+  html { scroll-padding-top: 72px; }
   .topbar__in { gap: 8px; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); padding-block: 0; } /* a logó pontosan középen */
   .topbar__name { justify-self: center; }
   .topbar__name > span { display: none; }
-  .topbar__logo { width: 50px; height: 50px; padding: 4px; }
-  .topbar .lang a { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; padding: 0 .3rem; font-size: .72rem; }
-  .menu-toggle { width: 44px; height: 44px; padding: 0; justify-content: center; }
-  .menu-toggle__label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .topbar__logo { width: 54px; height: 54px; padding: 5px; }
 }
 
 /* beúszó panel */

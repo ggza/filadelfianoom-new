@@ -44,8 +44,8 @@
         <img class="topbar__logo" src="{{ asset('assets/img/logo.webp') }}" width="180" height="180" alt="">
         <span aria-hidden="true">{{ $nameTail }}</span>
       </a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
-        <span class="menu-toggle__bars" aria-hidden="true"></span><span class="menu-toggle__label">{{ __('site.menu') }}</span>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="{{ __('site.menu') }}">
+        <span class="menu-toggle__bars" aria-hidden="true"></span>
       </button>
     </div>
   </div>
