@@ -58,4 +58,14 @@
   });
 
   window.FilaMenu = { open: open, close: close, isOpen: isOpen };
+
+  // nyelvváltáskor ugyanarra a szekcióra érkezzen a másik nyelven (Geza, 2026-10-10)
+  document.querySelectorAll('a[hreflang]').forEach(function (a) { // fejléc és lábléc nyelvváltója
+    a.addEventListener('click', function () {
+      var sections = document.querySelectorAll('main > section[id]');
+      var line = window.innerHeight * 0.4, current = null;
+      sections.forEach(function (s) { if (s.getBoundingClientRect().top <= line) current = s; });
+      a.setAttribute('href', a.getAttribute('href').split('#')[0] + (current ? '#' + current.id : ''));
+    });
+  });
 })();

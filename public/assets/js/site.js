@@ -179,7 +179,12 @@
   window.addEventListener('keydown', function (ev) {
     if (!introFinished && ['Tab', 'Escape', ' ', 'ArrowDown', 'PageDown', 'End', 'Home'].indexOf(ev.key) !== -1) finishIntro();
   });
-  if (location.hash && location.hash.length > 1) finishIntro(); else playIntro();
+  if (location.hash && location.hash.length > 1) {
+    finishIntro();
+    // horgonnyal érkezve (pl. nyelvváltás után) oda görget; az intro görgetészára miatt a böngésző magától nem teszi meg
+    var hashTarget = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (hashTarget) setTimeout(function () { hashTarget.scrollIntoView({ behavior: 'instant', block: 'start' }); }, 0);
+  } else playIntro();
 
   /* ---------------- Fejléc: tömör háttér görgetéskor ---------------- */
   var header = $('.site-header');
