@@ -152,9 +152,9 @@ svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; 
   .site-header:not(.is-solid) .nav-link { color: #1a1a1a; text-shadow: 0 0 10px rgba(255, 255, 255, .7); }
   .site-header:not(.is-solid) .primary-nav a[data-nav]:hover,
   .site-header:not(.is-solid) .primary-nav a[data-nav][aria-current],
-  .site-header:not(.is-solid) .nav-link:hover { color: var(--lav); }
+  .site-header:not(.is-solid) .nav-link:hover { color: #fff; text-shadow: 0 1px 10px rgba(20, 28, 16, .55); } /* fehér hover/aktív (Geza, 2026-10-10) */
   .site-header:not(.is-solid) .primary-nav a[data-nav]::after,
-  .site-header:not(.is-solid) .nav-link::after { background: var(--lav); }
+  .site-header:not(.is-solid) .nav-link::after { background: #fff; }
 }
 
 /* a logó: középen, 50%-os fehér körben */
