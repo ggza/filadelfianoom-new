@@ -86,7 +86,7 @@ svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; 
 .topbar__name {
   flex: 1 1 auto; min-width: 0; order: 0; text-align: center;
   margin: 0; font-family: "Nunito", var(--f-body); font-weight: 700; letter-spacing: .05em; line-height: 1.15; /* Nunito (Geza, 2026-10-08) */
-  text-transform: uppercase; font-size: clamp(.95rem, 1.1vw, 1.12rem); color: #c9cf96; /* világos olívazöld (Geza, 2026-10-08) */
+  text-transform: uppercase; font-size: clamp(.95rem, 1.3vw, 1.25rem); /* nagyobb (Geza, 2026-10-10) */ color: #c9cf96; /* világos olívazöld (Geza, 2026-10-08) */
 }
 .topbar__contact { order: -1; flex: none; white-space: nowrap; }
 .topbar__tools, .account-btn { flex: none; white-space: nowrap; }
