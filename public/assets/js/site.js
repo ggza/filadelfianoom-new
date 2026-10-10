@@ -12,7 +12,7 @@
     sloganHold: 3600,    // a teljes szlogen kitartása
     sloganOut: 1000,     // ki-csúszás
     photoFade: 1200,     // hero képváltó áttűnése (az eredeti 1,2 s; Geza, 2026-10-10)
-    photoInterval: 3350, // hero képváltó képenként: 1200 ms áttűnés + 2150 ms teljesen látható (a látható idő a felére: 4300 → 2150; Geza, 2026-10-10)
+    photoInterval: 4500, // hero képváltó képenként: 1200 ms áttűnés + 3300 ms teljesen látható (Geza, 2026-10-10)
     galleryInterval: 6500
   };
 
