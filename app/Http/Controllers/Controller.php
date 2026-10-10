@@ -32,4 +32,19 @@ abstract class Controller
             $this->sendMail($to, $subject, $body, $replyEmail, $replyName);
         }
     }
+
+    // automatikus visszaigazolás a beküldőnek (az űrlap nyelvén); a válasz az adminhoz érkezik
+    protected function acknowledge(?string $to, string $name, string $type): void
+    {
+        if (! $to) {
+            return;
+        }
+        $lang = in_array(app()->getLocale(), ['hu', 'ro'], true) ? app()->getLocale() : 'ro';
+        $this->sendMail(
+            $to,
+            __("site.ack_{$type}_subject", [], $lang),
+            __("site.ack_{$type}_body", ['name' => $name], $lang),
+            config('app.contact_to') ?: null,
+        );
+    }
 }

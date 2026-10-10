@@ -52,6 +52,8 @@ class SiteController extends Controller
             . "Az adatok az admin felületen olvashatók:\n" . route('admin.admissions.show', $admission),
         );
 
+        $this->acknowledge($admission->email, $admission->representative, 'admission');
+
         return redirect()->to(url('/') . '?sent=1#jelentkezes')->with('admission_sent', true);
     }
 
@@ -77,6 +79,8 @@ class SiteController extends Controller
             $msg->email,
             $msg->name,
         );
+
+        $this->acknowledge($msg->email, $msg->name, 'contact');
 
         return redirect()->to(url('/') . '?sent=contact#contact')->with('contact_sent', true);
     }
