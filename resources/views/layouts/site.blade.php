@@ -15,7 +15,7 @@
 <link rel="alternate" hreflang="ro" href="{{ url()->current() }}?lang=ro">
 <link rel="alternate" hreflang="hu" href="{{ url()->current() }}?lang=hu">
 {{-- betűk: a fő fájlok előtöltése, a @font-face szabályok beágyazva (nincs külön blokkoló kérés; Geza, 2026-10-11) --}}
-@foreach (["fraunces-normal-latin", "source-sans-3-normal-latin", "nunito-normal-latin"] as $font)
+@foreach (["fraunces-normal-latin", "source-sans-3-normal-latin"] as $font)
 <link rel="preload" href="{{ asset("assets/fonts/$font.woff2") }}" as="font" type="font/woff2" crossorigin>
 @endforeach
 <style>{!! str_replace("url(", "url(" . asset("assets/fonts") . "/", preg_replace("/^\xEF\xBB\xBF/", "", file_get_contents(public_path("assets/fonts/fonts.css")))) !!}</style>

@@ -68,7 +68,8 @@
     dialog.addEventListener('click', function (ev) { if (ev.target === dialog) closeSettings(); });
   }
 
-  if (read() === null) showBar(true);
+  // a sávot a szerver már kirajzolta, ha nincs döntés; itt csak igazítjuk (pl. ha közben máshol döntött)
+  showBar(read() === null);
 
   window.FilaConsent = {
     allowed: function (cat) { var a = read(); return !!a && a.indexOf(cat) !== -1; },

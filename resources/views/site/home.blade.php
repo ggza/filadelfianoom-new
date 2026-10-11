@@ -29,9 +29,12 @@
 @endsection
 
 @push('head')
-{{-- teljesítmény (Geza, 2026-10-11): az első hero-kép előtöltése, könnyített háttérképek --}}
+{{-- teljesítmény (Geza, 2026-10-11): a hero háttérkép (ez a legnagyobb első tartalom) előtöltése kiemelt prioritással,
+     mobilon és asztalon a megfelelő változattal (a media miatt csak az egyik töltődik); az első hero-fotó is előre jön --}}
+<link rel="preload" as="image" href="{{ asset('assets/img/m/hatter-1.webp') }}" media="(max-width: 800px)" fetchpriority="high">
+<link rel="preload" as="image" href="{{ asset('assets/img/hatter-1-1600.webp') }}" media="(min-width: 801px)" fetchpriority="high">
 @if ($first = $hero->first())
-<link rel="preload" as="image" href="{{ asset($first->file) }}" @if($first->srcset()) imagesrcset="{{ $first->srcset() }}" imagesizes="100vw" @endif fetchpriority="high">
+<link rel="preload" as="image" href="{{ asset($first->file) }}" @if($first->srcset()) imagesrcset="{{ $first->srcset() }}" imagesizes="100vw" @endif>
 @endif
 <style>
   .hero__bg--1 { background-image: url({{ asset('assets/img/hatter-1-1600.webp') }}); }
@@ -59,7 +62,7 @@
       <figure class="carousel__slide{{ $i === 0 ? ' is-active' : '' }}" aria-roledescription="slide" aria-label="{{ ($i + 1) . ' / ' . $hero->count() }}" @if($i) aria-hidden="true" @endif>
         {{-- csak az első kép töltődik be azonnal (kiemelt prioritással), a többi a vetítés közben (site.js: prime) --}}
         @if ($i === 0)
-          <img src="{{ asset($img->file) }}" @if($img->srcset()) srcset="{{ $img->srcset() }}" sizes="100vw" @endif alt="{{ $cap }}" lang="{{ $capLang }}" fetchpriority="high" width="{{ $img->width }}" height="{{ $img->height }}">
+          <img src="{{ asset($img->file) }}" @if($img->srcset()) srcset="{{ $img->srcset() }}" sizes="100vw" @endif alt="{{ $cap }}" lang="{{ $capLang }}" width="{{ $img->width }}" height="{{ $img->height }}">
         @else
           <img data-src="{{ asset($img->file) }}" @if($img->srcset()) data-srcset="{{ $img->srcset() }}" sizes="100vw" @endif alt="{{ $cap }}" lang="{{ $capLang }}" width="{{ $img->width }}" height="{{ $img->height }}">
         @endif

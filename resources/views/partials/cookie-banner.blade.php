@@ -1,6 +1,8 @@
 {{-- Sütitájékoztató sáv és beállítások. Jelenleg csak szükséges sütik vannak, ezért nincs választható kategória;
      ha később statisztika/marketing kerül az oldalra, a consent.js CATEGORIES listájába kell felvenni. --}}
-<div class="cookie-bar" id="cookie-bar" role="region" aria-label="{{ __('site.cookie_title') }}" hidden>
+{{-- a szerver rajzolja ki, ha még nincs döntés (a süti nyers értéke: a JS állítja be, nem titkosított), így nem a JS jeleníti meg utólag --}}
+@php($cookieDecided = str_starts_with((string) ($_COOKIE['cookie_consent'] ?? ''), '1|'))
+<div class="cookie-bar" id="cookie-bar" role="region" aria-label="{{ __('site.cookie_title') }}" @if($cookieDecided) hidden @endif>
   <div class="cookie-bar__in">
     <p class="cookie-bar__text">
       <strong>{{ __('site.cookie_title') }}.</strong>
