@@ -73,4 +73,10 @@ return [
     'cookie_no_optional' => 'În prezent site-ul nu folosește cookie-uri de statistică, de publicitate sau alte cookie-uri opționale, de aceea nu există nimic de activat sau dezactivat.',
     'to_top'     => 'Sus',
     'read_more'  => 'Citește mai departe',
+
+    // automatikus visszaigazoló levelek a beküldőnek
+    'ack_contact_subject' => 'Am primit mesajul dumneavoastră',
+    'ack_contact_body' => "Stimate/Stimată :name,\n\nVă mulțumim pentru mesaj. L-am primit și vă vom răspunde cât mai curând.\n\nCu stimă,\nFiladelfia Noom",
+    'ack_admission_subject' => 'Am primit cererea dumneavoastră',
+    'ack_admission_body' => "Stimate/Stimată :name,\n\nVă mulțumim pentru cerere. Am primit-o și vă vom contacta în curând.\n\nCu stimă,\nFiladelfia Noom",
 ];

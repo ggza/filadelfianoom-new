@@ -73,4 +73,10 @@ return [
     'cookie_no_optional' => 'Az oldal jelenleg nem használ statisztikai, reklám- vagy egyéb választható sütit, ezért nincs mit be- vagy kikapcsolni.',
     'to_top'     => 'Fel',
     'read_more'  => 'Tovább olvasom',
+
+    // automatikus visszaigazoló levelek a beküldőnek
+    'ack_contact_subject' => 'Megkaptuk az üzenetét',
+    'ack_contact_body' => "Kedves :name!\n\nKöszönjük az üzenetét. Megkaptuk, és hamarosan válaszolunk.\n\nÜdvözlettel:\nFiladelfia Noom",
+    'ack_admission_subject' => 'Megkaptuk a jelentkezését',
+    'ack_admission_body' => "Kedves :name!\n\nKöszönjük a jelentkezést. Megkaptuk, és hamarosan felvesszük Önnel a kapcsolatot.\n\nÜdvözlettel:\nFiladelfia Noom",
 ];
