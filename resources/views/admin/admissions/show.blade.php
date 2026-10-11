@@ -23,7 +23,7 @@
   <label>Belső megjegyzés <textarea name="admin_note" rows="4">{{ $admission->admin_note }}</textarea></label>
   <button class="btn btn--primary" type="submit">Mentés</button>
 </form>
-<form method="post" action="{{ route('admin.admissions.destroy', $admission) }}" onsubmit="return confirm('Biztosan véglegesen törli ezt a jelentkezést?')">
+<form class="danger-zone" method="post" action="{{ route('admin.admissions.destroy', $admission) }}" onsubmit="return confirm('Biztosan véglegesen törli ezt a jelentkezést?')">
   @csrf @method('delete')<button class="btn btn--danger">Jelentkezés törlése</button>
 </form>
 @endsection

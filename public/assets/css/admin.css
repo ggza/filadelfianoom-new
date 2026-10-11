@@ -59,6 +59,7 @@ h2 { font-size: 1.3rem; margin: 0 0 .8rem; }
 
 /* űrlapok */
 .form { display: grid; gap: 1rem; }
+.form > .btn { justify-self: start; } /* a gomb ne nyúljon teljes szélességre (Geza, 2026-10-11) */
 .form--inline { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); align-items: end; }
 label { display: grid; gap: .25rem; font-weight: 700; font-size: .9rem; color: var(--green-ink); }
 input:not([type=checkbox]):not([type=radio]), textarea, select {

@@ -14,7 +14,7 @@
   <button class="btn btn--primary" type="submit">Mentés</button>
 </form>
 @if ($resident->exists)
-<form method="post" action="{{ route('admin.residents.destroy', $resident) }}" onsubmit="return confirm('A lakó minden híre és fotója is törlődik. Biztosan?')">
+<form class="danger-zone" method="post" action="{{ route('admin.residents.destroy', $resident) }}" onsubmit="return confirm('A lakó minden híre és fotója is törlődik. Biztosan?')">
   @csrf @method('delete')<button class="btn btn--danger">Lakó törlése</button>
 </form>
 @endif
