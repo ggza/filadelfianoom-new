@@ -30,12 +30,10 @@
 
 @push('head')
 {{-- teljesítmény (Geza, 2026-10-11): a hero háttérkép (ez a legnagyobb első tartalom) előtöltése kiemelt prioritással,
-     mobilon és asztalon a megfelelő változattal (a media miatt csak az egyik töltődik); az első hero-fotó is előre jön --}}
+     mobilon és asztalon a megfelelő változattal (a media miatt csak az egyik töltődik); más előtöltés nincs, hogy ne versenyezzen vele
+     (az első hero-fotó az intro alatt úgysem látszik, a lapból rendesen betöltődik) --}}
 <link rel="preload" as="image" href="{{ asset('assets/img/m/hatter-1.webp') }}" media="(max-width: 800px)" fetchpriority="high">
 <link rel="preload" as="image" href="{{ asset('assets/img/hatter-1-1600.webp') }}" media="(min-width: 801px)" fetchpriority="high">
-@if ($first = $hero->first())
-<link rel="preload" as="image" href="{{ asset($first->file) }}" @if($first->srcset()) imagesrcset="{{ $first->srcset() }}" imagesizes="100vw" @endif>
-@endif
 <style>
   .hero__bg--1 { background-image: url({{ asset('assets/img/hatter-1-1600.webp') }}); }
   .hero__bg--2 { background-image: url({{ asset('assets/img/hatter-2-1600.webp') }}); }

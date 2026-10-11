@@ -14,13 +14,10 @@
 <link rel="icon" href="{{ asset('assets/img/favicon.png') }}">
 <link rel="alternate" hreflang="ro" href="{{ url()->current() }}?lang=ro">
 <link rel="alternate" hreflang="hu" href="{{ url()->current() }}?lang=hu">
-{{-- betűk: a fő fájlok előtöltése, a @font-face szabályok beágyazva (nincs külön blokkoló kérés; Geza, 2026-10-11) --}}
-@foreach (["fraunces-normal-latin", "source-sans-3-normal-latin"] as $font)
-<link rel="preload" href="{{ asset("assets/fonts/$font.woff2") }}" as="font" type="font/woff2" crossorigin>
-@endforeach
+{{-- betűk: a @font-face szabályok beágyazva (nincs külön blokkoló kérés; Geza, 2026-10-11); előtöltés nincs,
+     hogy ne versenyezzen a stílusfájllal és a háttérképpel (font-display: swap miatt a szöveg így is azonnal látszik) --}}
 <style>{!! str_replace("url(", "url(" . asset("assets/fonts") . "/", preg_replace("/^\xEF\xBB\xBF/", "", file_get_contents(public_path("assets/fonts/fonts.css")))) !!}</style>
-<link rel="stylesheet" href="{{ asset('assets/css/site.css') . $v }}">
-<link rel="stylesheet" href="{{ asset('assets/css/app.css') . $v }}">
+<link rel="stylesheet" href="{{ asset('assets/css/site.css') . $v }}">{{-- az egykori app.css is benne van --}}
 @stack('head')
 </head>
 <body class="@yield('body_class')">

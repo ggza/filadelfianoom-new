@@ -985,3 +985,98 @@ html { scroll-padding-top: 90px; }
 
 /* kontraszt (PageSpeed, Geza, 2026-10-11): a Formular 230 kártya kisbetűs sora teljes színnel */
 .donate__card--pdf small { opacity: 1; }
+
+/* ======== Korábban külön app.css (összevonva a site.css-be: eggyel kevesebb blokkoló kérés; Geza, 2026-10-11) ======== */
+/* Laravel-kiegészítések a saját változat (site.css) mellé: űrlapok, hírek, belépés, fiók */
+
+/* ---------- Űrlapelemek ---------- */
+.field textarea, .field select {
+  font: inherit; padding: .7rem .9rem; border-radius: 12px; border: 1.5px solid rgba(72, 89, 52, .35);
+  background: #fff; color: var(--ink); width: 100%;
+}
+.field input { width: 100%; box-sizing: border-box; }
+.field--err input, .field--err textarea, .field--err select { border-color: #a3323a; }
+.field__err { color: #a3323a; font-weight: 700; font-size: .85rem; }
+.note--ok { background: var(--sage); color: var(--green-ink); font-weight: 700; }
+.note--err { background: #f6dcdc; color: #7c1f26; font-weight: 700; }
+.hp { position: absolute !important; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.check { display: flex; gap: .6rem; align-items: flex-start; font-size: .95rem; }
+.check input { margin-top: .25rem; width: 18px; height: 18px; accent-color: var(--lav); flex: none; }
+.muted { color: var(--ink-soft); }
+
+/* ---------- Hírek ---------- */
+.posts { display: grid; gap: 1.6rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); }
+.post {
+  background: #fff; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow);
+  display: flex; flex-direction: column;
+}
+.post__img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+.post__in { padding: 1.3rem 1.4rem 1.5rem; }
+.post time { font-size: .85rem; font-weight: 700; color: var(--lav); }
+.post h3 { font-family: var(--f-display); font-size: 1.35rem; line-height: 1.2; color: var(--green-ink); margin: .3rem 0 .7rem; }
+.post .prose p:last-child { margin-bottom: 0; }
+
+/* ---------- Aloldalak (belépés, regisztráció, fiók) ---------- */
+.page-simple .site-header { position: sticky; top: 0; }
+.page-simple .mainbar {
+  background: rgba(247, 244, 234, .95); box-shadow: 0 6px 24px -18px rgba(0,0,0,.5);
+}
+.mainbar__in--simple { justify-content: space-between; min-height: 72px; }
+.mainbar__in--simple .brand { width: 76px; height: 76px; top: -2px; }
+.back-link { font-weight: 700; text-decoration: none; color: var(--green-ink); }
+.back-link:hover { color: var(--lav); }
+.logout-form { margin: 0; }
+.page { padding-block: clamp(3rem, 7vw, 5.5rem); min-height: 60vh; }
+.page__in { max-width: 920px; }
+.page__in > .note { margin-bottom: 1.5rem; }
+
+.auth-card {
+  max-width: 480px; margin-inline: auto; background: #fff; border-radius: var(--radius);
+  padding: clamp(1.6rem, 4vw, 2.6rem); box-shadow: var(--shadow);
+  border-top: 6px solid var(--lav);
+}
+.auth-card--wide { max-width: 760px; }
+.auth-card .h-display { font-size: clamp(1.8rem, 4vw, 2.4rem); margin-bottom: .6rem; }
+.auth-card__intro { color: var(--ink-soft); margin: 0 0 1.4rem; }
+.auth-card__alt { margin: 1.4rem 0 0; padding-top: 1rem; border-top: 1px solid rgba(72,89,52,.15); font-size: .95rem; }
+.auth-card__forgot { margin: 0; font-size: .95rem; }
+.link-button { padding: 0; border: 0; background: none; font: inherit; color: inherit; text-decoration: underline; cursor: pointer; }
+
+.stack-form { display: grid; gap: 1rem; }
+.stack-form--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 1.2rem; }
+.stack-form--2 .check--full, .stack-form--2 .field--full, .stack-form--2 .stack-form__foot { grid-column: 1 / -1; }
+.stack-form__foot { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-top: .3rem; }
+@media (max-width: 640px) { .stack-form--2 { grid-template-columns: minmax(0, 1fr); } }
+
+/* fiók */
+.account-head { margin-bottom: 2rem; }
+.account-head .h-display { margin-bottom: .6rem; }
+.notice-card {
+  background: var(--lav-mist); border-radius: var(--radius); padding: 1.4rem 1.6rem; margin-bottom: 2rem;
+  border-left: 6px solid var(--lav);
+}
+.notice-card h2 { font-family: var(--f-display); color: var(--lav); margin: 0 0 .4rem; font-size: 1.4rem; }
+.notice-card p { margin: 0; }
+.resident { background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); padding: clamp(1.4rem, 3vw, 2.2rem); margin-bottom: 2rem; }
+.resident__head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .4rem 1rem; border-bottom: 1px solid rgba(72,89,52,.15); padding-bottom: .8rem; margin-bottom: 1rem; }
+.resident__head h2 { font-family: var(--f-display); font-size: 1.8rem; color: var(--green-ink); margin: 0; }
+.resident__head p { margin: 0; color: var(--ink-soft); font-weight: 700; }
+.resident__sub { font-size: .8rem; text-transform: uppercase; letter-spacing: .12em; color: var(--lav); margin: 0 0 .8rem; }
+.update { padding: 1rem 0; border-top: 1px dashed rgba(72,89,52,.2); }
+.update:first-of-type { border-top: 0; padding-top: 0; }
+.update time { font-size: .85rem; font-weight: 700; color: var(--lav); }
+.update h4 { font-family: var(--f-display); font-size: 1.2rem; margin: .2rem 0 .4rem; color: var(--green-ink); }
+.update p { margin: 0 0 .6rem; }
+.photo-grid { display: grid; gap: .6rem; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); margin-top: .6rem; }
+.photo-grid img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 10px; }
+.pw-card { background: var(--cream); border-radius: var(--radius); padding: 1rem 1.4rem; max-width: 480px; }
+.pw-card summary { cursor: pointer; font-weight: 700; color: var(--green-ink); }
+.pw-card[open] summary { margin-bottom: 1rem; }
+
+@media (max-width: 1100px) {
+  .page-simple .menu-toggle { display: none; }
+  .mainbar__in--simple .brand { position: absolute; }
+}
+@media (max-width: 560px) {
+  .mainbar__in--simple .brand { display: none; }
+}
