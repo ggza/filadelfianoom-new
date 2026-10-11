@@ -961,3 +961,21 @@ html { scroll-padding-top: 90px; }
 .legal__body th, .legal__body td { text-align: left; vertical-align: top; padding: .55rem .6rem; border-bottom: 1px solid rgba(72, 89, 52, .2); }
 .legal__body th { color: var(--green-ink); }
 @media (max-width: 640px) { .legal__body table { display: block; overflow-x: auto; } }
+
+/* Lábléc menü: egy sorban, a háttérnél kicsit világosabb lekerekített gombokként (Geza, 2026-10-11) */
+.site-footer__in { grid-template-columns: auto 1fr; }
+.site-footer__links {
+  grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: .5rem; justify-items: initial;
+  padding-top: 1.2rem; border-top: 1px solid rgba(233, 230, 214, .15);
+}
+.site-footer__links a,
+.site-footer__links button {
+  display: inline-flex; align-items: center; min-height: 36px; padding: .4rem .95rem;
+  border: 0; border-radius: 99px; background: rgba(255, 255, 255, .08);
+  color: #e9e6d6; font: inherit; font-weight: 600; font-size: .88rem; text-decoration: none; cursor: pointer;
+  transition: background .2s ease, color .2s ease;
+}
+.site-footer__links a:hover,
+.site-footer__links button:hover { background: rgba(255, 255, 255, .16); color: #fff; text-decoration: none; }
+.site-footer__links a:focus-visible,
+.site-footer__links button:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
