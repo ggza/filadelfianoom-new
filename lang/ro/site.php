@@ -78,5 +78,5 @@ return [
     'ack_contact_subject' => 'Am primit mesajul dumneavoastră',
     'ack_contact_body' => "Stimate/Stimată :name,\n\nVă mulțumim pentru mesaj. L-am primit și vă vom răspunde cât mai curând.\n\nCu stimă,\nFiladelfia Noom",
     'ack_admission_subject' => 'Am primit cererea dumneavoastră',
-    'ack_admission_body' => "Stimate/Stimată :name,\n\nVă mulțumim pentru cerere. Am primit-o și vă vom contacta în curând.\n\nCu stimă,\nFiladelfia Noom",
+    'ack_admission_body' => "Stimate solicitant,\n\nVă mulțumim pentru cerere. Am primit-o și vă vom contacta în curând.\n\nCu stimă,\nFiladelfia Noom",
 ];

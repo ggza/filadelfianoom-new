@@ -53,7 +53,8 @@ class SiteController extends Controller
             . "Az adatok az admin felületen olvashatók:\n" . route('admin.admissions.show', $admission),
         );
 
-        $this->acknowledge($admission->email, $admission->representative, 'admission');
+        // a képviselő adatai mezőben CNP és cím is lehet, ezért a visszaigazolás név nélkül szól
+        $this->acknowledge($admission->email, '', 'admission');
 
         return redirect()->to(url('/') . '?sent=1#jelentkezes')->with('admission_sent', true);
     }

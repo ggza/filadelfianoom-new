@@ -15,12 +15,12 @@ Adatvédelmi tisztviselő: [KITÖLTENDŐ: van-e kijelölt adatvédelmi tisztvise
 <p><strong>Adatok:</strong> név, e-mail-cím, telefonszám (nem kötelező), az üzenet szövege és az oldal nyelve.<br>
 <strong>Cél:</strong> a kérdés megválaszolása, kapcsolattartás.<br>
 <strong>Jogalap:</strong> az Ön hozzájárulása (GDPR 6. cikk (1) a)), amelyet az űrlapon a jelölőnégyzettel ad meg.<br>
-Az üzenetet az alapítvány adatbázisában tároljuk, és értesítő e-mailt küldünk róla az alapítvány e-mail-fiókjába (Google Gmail).<br>
+Az üzenetet az alapítvány adatbázisában tároljuk, és értesítő e-mailt küldünk róla az alapítvány e-mail-fiókjába (Google Gmail). A beküldő a megadott e-mail-címére automatikus visszaigazolást kap.<br>
 <strong>Megőrzés:</strong> [KITÖLTENDŐ: meddig őrizzük meg az üzeneteket]</p>
 
 <h3>2.2. Jelentkezési ív (felvételi kérelem)</h3>
 <p><strong>Adatok:</strong> a beköltöző hivatalos képviselőjének adatai (név, CNP, cím), a beköltöző személy adatai (név, CNP, cím), a beköltöző ismert betegségei, fizetési mód, kívánt időpont, telefonszám, e-mail-cím.<br>
-<strong>Különleges adatok:</strong> a betegségekre vonatkozó adatok egészségügyi adatnak, vagyis a GDPR 9. cikke szerinti különleges adatnak minősülnek; a CNP (személyi szám) azonosító szám. Ezeket fokozott védelemmel kezeljük: az ív minden adatát titkosítva tároljuk, és csak az alapítvány erre jogosult munkatársai férhetnek hozzá a kétlépcsős belépéssel védett adminisztrációs felületen. Az alapítványnak küldött értesítő e-mail nem tartalmaz személyes adatot, csak a jelentkezés tényét.<br>
+<strong>Különleges adatok:</strong> a betegségekre vonatkozó adatok egészségügyi adatnak, vagyis a GDPR 9. cikke szerinti különleges adatnak minősülnek; a CNP (személyi szám) azonosító szám. Ezeket fokozott védelemmel kezeljük: az ív minden adatát titkosítva tároljuk, és csak az alapítvány erre jogosult munkatársai férhetnek hozzá a kétlépcsős belépéssel védett adminisztrációs felületen. Az alapítványnak küldött értesítő e-mail nem tartalmaz személyes adatot, csak a jelentkezés tényét. Ha a jelentkező e-mail-címet ad meg, arra automatikus visszaigazolást kap, amely szintén nem tartalmazza az ív adatait.<br>
 <strong>Cél:</strong> a felvételi kérelem elbírálása, kapcsolatfelvétel a jelentkezővel, a bentlakásos ellátás előkészítése.<br>
 <strong>Jogalap:</strong> a szerződés megkötését megelőző lépések (GDPR 6. cikk (1) b)), az egészségügyi adatok esetében az Ön kifejezett hozzájárulása (GDPR 9. cikk (2) a)), amelyet az űrlapon a jelölőnégyzettel ad meg. [KITÖLTENDŐ: a jogalap jogi ellenőrzése, pl. szociális ellátásra vonatkozó jogszabályi kötelezettség]<br>
 <strong>Megőrzés:</strong> [KITÖLTENDŐ: meddig őrizzük meg a jelentkezéseket, elutasítás vagy visszavonás esetén is]</p>

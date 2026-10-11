@@ -78,5 +78,5 @@ return [
     'ack_contact_subject' => 'Megkaptuk az üzenetét',
     'ack_contact_body' => "Kedves :name!\n\nKöszönjük az üzenetét. Megkaptuk, és hamarosan válaszolunk.\n\nÜdvözlettel:\nFiladelfia Noom",
     'ack_admission_subject' => 'Megkaptuk a jelentkezését',
-    'ack_admission_body' => "Kedves :name!\n\nKöszönjük a jelentkezést. Megkaptuk, és hamarosan felvesszük Önnel a kapcsolatot.\n\nÜdvözlettel:\nFiladelfia Noom",
+    'ack_admission_body' => "Tisztelt Jelentkező!\n\nKöszönjük a jelentkezést. Megkaptuk, és hamarosan felvesszük Önnel a kapcsolatot.\n\nÜdvözlettel:\nFiladelfia Noom",
 ];
