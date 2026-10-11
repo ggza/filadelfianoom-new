@@ -49,7 +49,8 @@
 <section class="hero" aria-labelledby="slogan">
   <div class="hero__bgs" aria-hidden="true">
     {{-- háttérképek: mobilon a 800 px-es, asztalon az 1600 px-es könnyített változat (lásd a head-be tett stílust) --}}
-    <div class="hero__bg hero__bg--1"></div>
+    {{-- az első eleve látható (is-on), nem a JS kapcsolja be: így rögtön megjelenik és ez a legnagyobb első tartalom (Geza, 2026-10-11) --}}
+    <div class="hero__bg hero__bg--1 is-on"></div>
     <div class="hero__bg hero__bg--2"></div>
     <div class="hero__veil"></div>
   </div>
