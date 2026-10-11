@@ -28,12 +28,28 @@
   <div class="offcanvas__cta"><button type="button" class="pill pill--big" data-open="dlg-apply">{{ __('site.nav_apply') }}</button></div>
 @endsection
 
+@push('head')
+{{-- teljesítmény (Geza, 2026-10-11): az első hero-kép előtöltése, könnyített háttérképek --}}
+@if ($first = $hero->first())
+<link rel="preload" as="image" href="{{ asset($first->file) }}" @if($first->srcset()) imagesrcset="{{ $first->srcset() }}" imagesizes="100vw" @endif fetchpriority="high">
+@endif
+<style>
+  .hero__bg--1 { background-image: url({{ asset('assets/img/hatter-1-1600.webp') }}); }
+  .hero__bg--2 { background-image: url({{ asset('assets/img/hatter-2-1600.webp') }}); }
+  @media (max-width: 800px) {
+    .hero__bg--1 { background-image: url({{ asset('assets/img/m/hatter-1.webp') }}); }
+    .hero__bg--2 { background-image: url({{ asset('assets/img/m/hatter-2.webp') }}); }
+  }
+</style>
+@endpush
+
 @section('content')
 <!-- ============ Hero: szlogen-intro, majd fotó-carousel ============ -->
 <section class="hero" aria-labelledby="slogan">
   <div class="hero__bgs" aria-hidden="true">
-    <div class="hero__bg" style="background-image:url({{ asset('assets/img/hatter-1.webp') }})"></div>
-    <div class="hero__bg" style="background-image:url({{ asset('assets/img/hatter-2.webp') }})"></div>
+    {{-- háttérképek: mobilon a 800 px-es, asztalon az 1600 px-es könnyített változat (lásd a head-be tett stílust) --}}
+    <div class="hero__bg hero__bg--1"></div>
+    <div class="hero__bg hero__bg--2"></div>
     <div class="hero__veil"></div>
   </div>
 
@@ -41,7 +57,12 @@
     @foreach ($hero as $i => $img)
       @php [$cap, $capLang] = $img->caption($lang); @endphp
       <figure class="carousel__slide{{ $i === 0 ? ' is-active' : '' }}" aria-roledescription="slide" aria-label="{{ ($i + 1) . ' / ' . $hero->count() }}" @if($i) aria-hidden="true" @endif>
-        <img src="{{ asset($img->file) }}" alt="{{ $cap }}" lang="{{ $capLang }}" loading="{{ $i < 2 ? 'eager' : 'lazy' }}" width="{{ $img->width }}" height="{{ $img->height }}">
+        {{-- csak az első kép töltődik be azonnal (kiemelt prioritással), a többi a vetítés közben (site.js: prime) --}}
+        @if ($i === 0)
+          <img src="{{ asset($img->file) }}" @if($img->srcset()) srcset="{{ $img->srcset() }}" sizes="100vw" @endif alt="{{ $cap }}" lang="{{ $capLang }}" fetchpriority="high" width="{{ $img->width }}" height="{{ $img->height }}">
+        @else
+          <img data-src="{{ asset($img->file) }}" @if($img->srcset()) data-srcset="{{ $img->srcset() }}" sizes="100vw" @endif alt="{{ $cap }}" lang="{{ $capLang }}" width="{{ $img->width }}" height="{{ $img->height }}">
+        @endif
         @if ($cap)<figcaption lang="{{ $capLang }}">{{ $cap }}</figcaption>@endif
       </figure>
     @endforeach
@@ -77,7 +98,7 @@
         <h2 id="h-fundatia" class="h-display">{{ $x->title($lang) }}</h2>
         @if ($arch = $gallery->get(2) ?? $gallery->first())
           @php [$ac, $al] = $arch->caption($lang); @endphp
-          <figure class="arch"><img src="{{ asset($arch->file) }}" alt="{{ $ac }}" lang="{{ $al }}" loading="lazy"></figure>
+          <figure class="arch"><img src="{{ asset($arch->file) }}" @if($arch->srcset()) srcset="{{ $arch->srcset() }}" sizes="(max-width: 800px) 100vw, 480px" @endif alt="{{ $ac }}" lang="{{ $al }}" loading="lazy"></figure>
         @endif
       </div>
       <div class="split__main prose prose--lead">{!! $x->body($lang) !!}@include('site.partials.deco-icons', ['icons' => ['otthon', 'sziv', 'apolas', 'level']])</div>
@@ -118,7 +139,7 @@
             @php [$cap, $capLang] = $img->caption($lang); @endphp
             <figure class="carousel__slide{{ $i === 0 ? ' is-active' : '' }}" aria-roledescription="slide" aria-label="{{ ($i + 1) . ' / ' . $gallery->count() }}" @if($i) aria-hidden="true" @endif>
               <button type="button" class="gallery__zoom" data-lightbox="{{ $i }}" aria-label="{{ __('site.open_img') }}: {{ $cap }}" @if($i) tabindex="-1" @endif>
-                <img src="{{ asset($img->file) }}" alt="{{ $cap }}" lang="{{ $capLang }}" loading="lazy" width="{{ $img->width }}" height="{{ $img->height }}">
+                <img @if($i === 0) src="{{ asset($img->file) }}" loading="lazy" @if($img->srcset()) srcset="{{ $img->srcset() }}" @endif @else data-src="{{ asset($img->file) }}" @if($img->srcset()) data-srcset="{{ $img->srcset() }}" @endif @endif sizes="(max-width: 800px) 100vw, 1100px" alt="{{ $cap }}" lang="{{ $capLang }}" width="{{ $img->width }}" height="{{ $img->height }}">
                 <span class="gallery__zoom-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5M11 8v6M8 11h6"/></svg></span>
               </button>
               <figcaption lang="{{ $capLang }}"><span class="num">{{ sprintf('%02d', $i + 1) }}</span> {{ $cap }}</figcaption>
@@ -130,7 +151,7 @@
         <ol class="gallery__thumbs">
           @foreach ($gallery as $i => $img)
             <li><button type="button" data-goto="{{ $i }}" aria-label="{{ $i + 1 }}. {{ $img->caption($lang)[0] }}" @if($i === 0) aria-current="true" @endif>
-              <img src="{{ asset($img->thumb) }}" alt="" width="480" height="320">
+              <img src="{{ asset($img->thumb) }}" alt="" width="480" height="320" loading="lazy">
             </button></li>
           @endforeach
         </ol>

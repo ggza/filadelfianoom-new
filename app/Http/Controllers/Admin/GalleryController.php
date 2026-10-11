@@ -69,7 +69,7 @@ class GalleryController extends Controller
 
     public function destroy(GalleryImage $image)
     {
-        foreach ([$image->file, $image->thumb] as $rel) {
+        foreach ([$image->file, $image->thumb, \App\Support\ImageTool::mobilePath($image->file)] as $rel) {
             $abs = public_path($rel);
             if (str_starts_with($rel, 'uploads/') && is_file($abs)) @unlink($abs);
         }

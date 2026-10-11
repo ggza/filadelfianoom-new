@@ -69,11 +69,23 @@
       x0 = null;
     });
   }
+  // a még be nem töltött diák képe (data-src / data-srcset) csak szükség esetén töltődik be (Geza, 2026-10-11)
+  Carousel.prototype.prime = function (k) {
+    var n = this.slides.length;
+    var img = this.slides[(k + n) % n] && $("img[data-src]", this.slides[(k + n) % n]);
+    if (!img) return;
+    if (img.getAttribute("data-srcset")) img.setAttribute("srcset", img.getAttribute("data-srcset"));
+    img.setAttribute("src", img.getAttribute("data-src"));
+    img.removeAttribute("data-src");
+    img.removeAttribute("data-srcset");
+  };
   Carousel.prototype.go = function (i, user) {
     var n = this.slides.length;
     i = (i + n) % n;
     var prev = this.index;
     this.index = i;
+    this.prime(i);
+    this.prime(i + 1);
     this.slides.forEach(function (s, k) {
       var on = k === i;
       s.classList.toggle('is-active', on);
@@ -94,6 +106,7 @@
   };
   Carousel.prototype.start = function () {
     this.stop();
+    this.prime(this.index + 1);
     if (this.paused || this.hold || reduceMotion) return;
     var self = this;
     this.timer = setInterval(function () { self.go(self.index + 1); }, this.interval);

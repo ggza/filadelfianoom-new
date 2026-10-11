@@ -7,7 +7,8 @@ use Illuminate\Support\Str;
 use RuntimeException;
 
 /**
- * Feltöltött képek átméretezése GD-vel: egy nagy (max. 1600 px) és egy kicsi (480×320, vágva) változat.
+ * Feltöltött képek átméretezése GD-vel: egy nagy (max. 1600 px), egy mobilos (max. 800 px széles, m/ almappa)
+ * és egy kicsi (480×320, vágva) változat.
  * WebP-be ment, ha a PHP tudja, különben JPEG-be.
  */
 class ImageTool
@@ -15,6 +16,7 @@ class ImageTool
     public const MAX = 1600;
     public const THUMB_W = 480;
     public const THUMB_H = 320;
+    public const MOBILE_W = 800;   // mobilos változat szélessége (srcset), Geza, 2026-10-11
 
     /**
      * @return array{file:string, thumb:string, width:int, height:int}  útvonalak a $baseDir-hez képest
@@ -31,6 +33,7 @@ class ImageTool
         $scale = min(1, self::MAX / max($w, $h));
         $big = self::resample($src, (int) round($w * $scale), (int) round($h * $scale));
         self::save($big, "$baseDir/$name", $ext);
+        self::mobileVariant($big, "$baseDir/m/$name", $ext);
 
         // kicsi kép: középre vágva 3:2-re
         $ratio = self::THUMB_W / self::THUMB_H;
@@ -43,6 +46,34 @@ class ImageTool
         $out = ['file' => $relPrefix . $name, 'thumb' => $relPrefix . 'kicsi/' . $name, 'width' => imagesx($big), 'height' => imagesy($big)];
         imagedestroy($src); imagedestroy($big); imagedestroy($thumb);
         return $out;
+    }
+
+    /** Mobilos változat (max. MOBILE_W széles, kisebb minőség) egy már betöltött képből. */
+    public static function mobileVariant($img, string $outPath, string $ext = 'webp'): void
+    {
+        if (! is_dir(dirname($outPath))) mkdir(dirname($outPath), 0775, true);
+        $w = imagesx($img);
+        $h = imagesy($img);
+        $scale = min(1, self::MOBILE_W / $w);
+        $small = self::resample($img, (int) round($w * $scale), (int) round($h * $scale));
+        $ok = $ext === 'webp' ? imagewebp($small, $outPath, 72) : imagejpeg($small, $outPath, 75);
+        imagedestroy($small);
+        if (! $ok) throw new RuntimeException('A mobilos kép mentése nem sikerült.');
+    }
+
+    /** Mobilos változat egy meglévő képfájlból (a régi képek utólagos feldolgozásához). */
+    public static function mobileVariantFromFile(string $srcPath, string $outPath): void
+    {
+        $img = self::load($srcPath);
+        $ext = strtolower(pathinfo($outPath, PATHINFO_EXTENSION)) === 'webp' ? 'webp' : 'jpg';
+        self::mobileVariant($img, $outPath, $ext);
+        imagedestroy($img);
+    }
+
+    /** A mobilos változat útvonala (uploads/galeria/x.webp -> uploads/galeria/m/x.webp). */
+    public static function mobilePath(string $rel): string
+    {
+        return trim(dirname($rel), '/.') . '/m/' . basename($rel);
     }
 
     private static function load(string $path)
