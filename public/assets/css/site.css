@@ -962,11 +962,10 @@ html { scroll-padding-top: 90px; }
 .legal__body th { color: var(--green-ink); }
 @media (max-width: 640px) { .legal__body table { display: block; overflow-x: auto; } }
 
-/* Lábléc menü: egy sorban, a háttérnél kicsit világosabb lekerekített gombokként (Geza, 2026-10-11) */
-.site-footer__in { grid-template-columns: auto 1fr; }
+/* Lábléc menü: jobb oldalt, a cím és adatok mellett egy csoportban, a háttérnél kicsit világosabb lekerekített gombokként (Geza, 2026-10-11) */
+.site-footer__in { grid-template-columns: auto minmax(0, 1fr) minmax(0, 520px); }
 .site-footer__links {
-  grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: .5rem; justify-items: initial;
-  padding-top: 1.2rem; border-top: 1px solid rgba(233, 230, 214, .15);
+  display: flex; flex-wrap: wrap; justify-content: flex-end; align-content: flex-start; gap: .5rem; justify-items: initial;
 }
 .site-footer__links a,
 .site-footer__links button {
@@ -979,3 +978,7 @@ html { scroll-padding-top: 90px; }
 .site-footer__links button:hover { background: rgba(255, 255, 255, .16); color: #fff; text-decoration: none; }
 .site-footer__links a:focus-visible,
 .site-footer__links button:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+@media (max-width: 900px) {
+  .site-footer__in { grid-template-columns: auto minmax(0, 1fr); }
+  .site-footer__links { grid-column: 1 / -1; justify-content: flex-start; }
+}
