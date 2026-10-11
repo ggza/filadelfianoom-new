@@ -255,6 +255,10 @@
           </div>
         @endforeach
         <div class="hp" aria-hidden="true"><label>Website <input name="website" tabindex="-1" autocomplete="off"></label></div>
+        <div class="field field--check @if($admissionErrors && $admissionErrors->has('consent')) field--err @endif">
+          <label><input type="checkbox" name="consent" value="1" required @checked(old('consent'))> <span>{{ __('site.admission_consent') }} <a href="{{ route('legal.privacy') }}" target="_blank" rel="noopener">{{ __('site.privacy_link') }}</a></span></label>
+          @if ($admissionErrors && $admissionErrors->has('consent'))<small class="field__err">{{ $admissionErrors->first('consent') }}</small>@endif
+        </div>
         @include('partials.turnstile', ['bag' => $admissionErrors])
         <p class="note">{{ __('site.privacy') }}</p>
         <div class="apply-form__foot">
@@ -305,7 +309,7 @@
         </div>
       @endforeach
       <div class="field field--check @if($contactErrors && $contactErrors->has('consent')) field--err @endif">
-        <label><input type="checkbox" name="consent" value="1" required @checked(old('consent'))> <span>{{ __('site.contact_consent') }}</span></label>
+        <label><input type="checkbox" name="consent" value="1" required @checked(old('consent'))> <span>{{ __('site.contact_consent') }} <a href="{{ route('legal.privacy') }}" target="_blank" rel="noopener">{{ __('site.privacy_link') }}</a></span></label>
       </div>
       <div class="hp" aria-hidden="true"><label>Website <input name="website" tabindex="-1" autocomplete="off"></label></div>
       @include('partials.turnstile', ['bag' => $contactErrors])

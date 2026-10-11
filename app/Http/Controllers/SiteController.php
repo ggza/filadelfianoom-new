@@ -38,10 +38,11 @@ class SiteController extends Controller
             'preferred_date' => 'nullable|date',
             'phone' => 'required|string|max:60',
             'email' => 'nullable|email|max:190',
+            'consent' => 'accepted', // kifejezett hozzájárulás (egészségügyi adatok)
             'website' => 'prohibited', // rejtett csapda a robotoknak
             'cf-turnstile-response' => [new Turnstile],
         ]);
-        unset($data['website'], $data['cf-turnstile-response']);
+        unset($data['website'], $data['consent'], $data['cf-turnstile-response']);
 
         $admission = Admission::create($data + ['locale' => app()->getLocale(), 'source' => 'web']);
 

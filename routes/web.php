@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin;
 use App\Http\Controllers\Auth\AdminCodeController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\PasswordResetController;
+use App\Http\Controllers\LegalController;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
 
@@ -12,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [SiteController::class, 'home'])->name('home');
 Route::post('/jelentkezes', [SiteController::class, 'storeAdmission'])->middleware('throttle:5,10')->name('admission.store');
 Route::post('/kapcsolat', [SiteController::class, 'storeContact'])->middleware('throttle:5,10')->name('contact.store');
+Route::get('/privacy', [LegalController::class, 'privacy'])->name('legal.privacy');
+Route::get('/cookies', [LegalController::class, 'cookies'])->name('legal.cookies');
 
 // Belépés, regisztráció
 Route::middleware('guest')->group(function () {

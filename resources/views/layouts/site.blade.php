@@ -91,12 +91,17 @@
     <ul class="site-footer__links">
       @yield('footer_links')
       <li><a href="?lang={{ $other }}" hreflang="{{ $other }}" lang="{{ $other }}">{{ $other === 'ro' ? 'Română' : 'Magyar' }}</a></li>
+      <li><a href="{{ route('legal.privacy') }}">{{ __('site.privacy_title') }}</a></li>
+      <li><a href="{{ route('legal.cookies') }}">{{ __('site.cookies_title') }}</a></li>
+      <li><button type="button" data-cookie-settings>{{ __('site.cookie_settings') }}</button></li>
       <li><a href="#top">{{ __('site.to_top') }} ↑</a></li>
     </ul>
   </div>
 </footer>
 
+@include('partials.cookie-banner')
 <script src="{{ asset('assets/js/menu.js') . $v }}" defer></script>
+<script src="{{ asset('assets/js/consent.js') . $v }}" defer></script>
 @stack('scripts')
 </body>
 </html>

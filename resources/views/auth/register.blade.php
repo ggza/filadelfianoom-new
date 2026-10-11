@@ -29,7 +29,7 @@
       <label for="password_confirmation">{{ __('account.password_confirm') }} *</label>
       <input id="password_confirmation" name="password_confirmation" type="password" required minlength="8" autocomplete="new-password">
     </div>
-    <label class="check check--full @error('consent') field--err @enderror"><input type="checkbox" name="consent" value="1" required @checked(old('consent'))> {{ __('account.consent') }}</label>
+    <label class="check check--full @error('consent') field--err @enderror"><input type="checkbox" name="consent" value="1" required @checked(old('consent'))> {{ __('account.consent') }} <a href="{{ route('legal.privacy') }}" target="_blank" rel="noopener">{{ __('site.privacy_link') }}</a></label>
     @include('partials.turnstile', ['bag' => $errors, 'class' => 'field--full'])
     <div class="stack-form__foot"><button type="submit" class="pill pill--big">{{ __('account.register') }}</button></div>
   </form>
