@@ -925,3 +925,7 @@ html { scroll-padding-top: 90px; }
 
 /* szekciók teteje: fele akkora üres hely (korábban clamp(4.5rem, 9vw, 8rem); Geza, 2026-10-10) */
 .section { padding-top: clamp(2.25rem, 4.5vw, 4rem); }
+
+/* Kapcsolat: a Jelentkezés gomb alja egy vonalban a névjegydoboz aljával (Geza, 2026-10-11) */
+.contact__actions { align-self: stretch; display: flex; flex-direction: column; }
+.contact__actions > .action--form { margin-top: auto; }
