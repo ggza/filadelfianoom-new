@@ -201,9 +201,9 @@
         <div class="contact__card prose prose--contact">{!! $x->body($lang) !!}</div>
         <div class="contact__actions">
           <a class="action" href="tel:+40259432020"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 005 5L15 12l5 2v4a2 2 0 01-2 2A16 16 0 013 5a2 2 0 012-2z"/></svg><span>{{ __('site.call') }}<small>+40 259 432 020</small></span></a>
-          <a class="action" href="mailto:filadelfianoom@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3z"/><path d="M3 6l9 7 9-7"/></svg><span>{{ __('site.write') }}<small>filadelfianoom@gmail.com</small></span></a>
+          <button type="button" class="action" data-open="dlg-contact"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3z"/><path d="M3 6l9 7 9-7"/></svg><span>{{ __('site.write') }}<small>{{ __('site.contact_btn_sub') }}</small></span></button>
           <a class="action" href="https://www.google.com/maps/search/?api=1&amp;query=Filadelfia+Noom+S%C4%83lard+547+Bihor" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 10-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><span>{{ __('site.map') }}<small>{{ $lang === 'ro' ? 'Sălard 547-548, Bihor' : 'Szalárd 547-548, Bihor' }}</small></span></a>
-          <button type="button" class="action action--form" data-open="dlg-contact"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg><span>{{ __('site.contact_btn') }}<small>{{ __('site.contact_btn_sub') }}</small></span></button>
+          <button type="button" class="action action--form" data-open="dlg-apply"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg><span>{{ __('site.nav_apply') }}<small>{{ __('site.tab_form') }}</small></span></button>
         </div>
       </div>
     </div>
