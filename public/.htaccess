@@ -23,3 +23,28 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 </IfModule>
+
+# ---------- Gyorsítótár és tömörítés (Geza, 2026-10-11) ----------
+# Minden blokk IfModule-ban van: ha a szerveren nincs meg a modul, a sor egyszerűen nem hat (nem okoz 500-as hibát).
+<IfModule mod_expires.c>
+    ExpiresActive On
+    # CSS és JS: a hivatkozásban ?v=ASSET_VERSION van, ezért hosszan tárolható
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType text/javascript "access plus 1 year"
+    # betűk: a fájlnév sosem változik
+    ExpiresByType font/woff2 "access plus 1 year"
+    # képek és PDF: 30 nap (ha egy kép ugyanazon a néven cserélődik, legfeljebb ennyi ideig látszhat a régi)
+    ExpiresByType image/webp "access plus 30 days"
+    ExpiresByType image/jpeg "access plus 30 days"
+    ExpiresByType image/png "access plus 30 days"
+    ExpiresByType image/svg+xml "access plus 30 days"
+    ExpiresByType image/x-icon "access plus 30 days"
+    ExpiresByType application/pdf "access plus 30 days"
+    # a HTML oldalak nem tárolódnak (mindig friss)
+    ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript text/javascript application/json image/svg+xml
+</IfModule>
