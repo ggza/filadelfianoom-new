@@ -14,9 +14,7 @@
 <link rel="icon" href="{{ asset('assets/img/favicon.png') }}">
 <link rel="alternate" hreflang="ro" href="{{ url()->current() }}?lang=ro">
 <link rel="alternate" hreflang="hu" href="{{ url()->current() }}?lang=hu">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="{{ config('app.font_url') }}">
+<link rel="stylesheet" href="{{ asset('assets/fonts/fonts.css') . $v }}">
 <link rel="stylesheet" href="{{ asset('assets/css/site.css') . $v }}">
 <link rel="stylesheet" href="{{ asset('assets/css/app.css') . $v }}">
 @stack('head')

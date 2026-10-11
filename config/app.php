@@ -18,7 +18,6 @@ return [
     // A nyilvános oldal statikus fájljainak verziója (CSS/JS gyorsítótár ürítéséhez emelni)
     'asset_version' => env('ASSET_VERSION', '1'),
 
-    // Google Fonts betűk (címek: Fraunces, szöveg: Source Sans 3)
     // az admin ennyi perc tétlenség után automatikusan kilép (Geza, 2026-10-09)
     'admin_idle_minutes' => (int) env('ADMIN_IDLE_MINUTES', 30),
 
@@ -29,7 +28,6 @@ return [
     // kapcsolatfelvételi űrlap értesítésének címzettje (Geza, 2026-10-08)
     'contact_to' => env('CONTACT_TO'),
 
-    'font_url' => env('FONT_URL', 'https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Source+Sans+3:ital,wght@0,400..800;1,400..800&family=Nunito:wght@600..800&display=swap'),
 
     /*
     |--------------------------------------------------------------------------

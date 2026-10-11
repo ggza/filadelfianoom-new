@@ -7,7 +7,7 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <title>@yield('title', 'Adminisztráció') – Filadelfia Noom</title>
 <link rel="icon" href="{{ asset('assets/img/favicon.png') }}">
-<link rel="stylesheet" href="{{ config('app.font_url') }}">
+<link rel="stylesheet" href="{{ asset('assets/fonts/fonts.css') }}?v={{ config('app.asset_version') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/admin.css') }}?v={{ config('app.asset_version') }}">
 @stack('head')
 </head>

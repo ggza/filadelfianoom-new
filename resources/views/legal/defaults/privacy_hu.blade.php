@@ -48,7 +48,6 @@ Az üzenetet az alapítvány adatbázisában tároljuk, és értesítő e-mailt 
   <li><strong>Tárhely és e-mail-szerver:</strong> Host-in-Europe (cohost). [KITÖLTENDŐ: a szolgáltató pontos cégneve és címe]</li>
   <li><strong>E-mail-fiók:</strong> Google (Gmail), az értesítő levelek fogadására.</li>
   <li><strong>Biztonsági ellenőrzés:</strong> Cloudflare, Inc. (Turnstile).</li>
-  <li><strong>Betűtípusok:</strong> a weboldal betűtípusait a Google Fonts szolgáltatásból töltjük be, ezért a böngésző az oldal megnyitásakor kapcsolatba lép a Google szervereivel (ennek során az IP-cím a Google részére továbbítódik).</li>
 </ul>
 <p>A Google és a Cloudflare az Európai Unión kívül (az Egyesült Államokban) is kezelhet adatokat; az adattovábbítás az EU–USA adatvédelmi keretrendszer, illetve általános szerződési feltételek alapján történik. [KITÖLTENDŐ: ellenőrzés]</p>
 <p>Személyes adatot harmadik félnek nem adunk el, és reklámcélra nem használunk.</p>

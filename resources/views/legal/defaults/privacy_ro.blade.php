@@ -48,7 +48,6 @@ Mesajul este stocat în baza de date a fundației, iar o notificare prin e-mail 
   <li><strong>Găzduire și server de e-mail:</strong> Host-in-Europe (cohost). [DE COMPLETAT: denumirea exactă și adresa furnizorului]</li>
   <li><strong>Cont de e-mail:</strong> Google (Gmail), pentru primirea notificărilor.</li>
   <li><strong>Verificare de securitate:</strong> Cloudflare, Inc. (Turnstile).</li>
-  <li><strong>Fonturi:</strong> fonturile site-ului sunt încărcate de la serviciul Google Fonts, astfel încât browserul se conectează la serverele Google la deschiderea paginii (adresa IP este transmisă către Google).</li>
 </ul>
 <p>Google și Cloudflare pot prelucra date și în afara Uniunii Europene (în Statele Unite); transferul are loc în baza Cadrului UE–SUA privind protecția datelor, respectiv a clauzelor contractuale standard. [DE COMPLETAT: verificare]</p>
 <p>Nu vindem date cu caracter personal către terți și nu le folosim în scopuri publicitare.</p>

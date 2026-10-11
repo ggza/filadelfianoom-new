@@ -14,7 +14,6 @@
 <h2>Servicii externe</h2>
 <ul>
   <li><strong>Cloudflare Turnstile</strong> (doar la formulare): pentru filtrarea trimiterilor automate nedorite. Cloudflare prelucrează date tehnice pentru funcționarea propriului serviciu; detalii în politica de confidențialitate Cloudflare.</li>
-  <li><strong>Google Fonts:</strong> fonturile sunt încărcate de pe serverele Google. Acest lucru nu plasează cookie-uri, dar adresa IP a browserului este transmisă către Google.</li>
 </ul>
 
 <h2>Gestionarea cookie-urilor</h2>

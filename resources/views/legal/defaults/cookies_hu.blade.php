@@ -14,7 +14,6 @@
 <h2>Külső szolgáltatások</h2>
 <ul>
   <li><strong>Cloudflare Turnstile</strong> (csak az űrlapokon): a kéretlen, automatizált beküldések kiszűrésére. A Cloudflare a saját szolgáltatásának működéséhez technikai adatokat kezel; részletek a Cloudflare adatvédelmi tájékoztatójában.</li>
-  <li><strong>Google Fonts:</strong> a betűtípusok a Google szervereiről töltődnek be. Ez sütit nem helyez el, de a böngésző IP-címe a Google részére továbbítódik.</li>
 </ul>
 
 <h2>A sütik kezelése</h2>
