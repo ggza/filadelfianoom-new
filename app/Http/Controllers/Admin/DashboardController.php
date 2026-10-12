@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Admission;
 use App\Models\ContactMessage;
-use App\Models\GalleryImage;
 use App\Models\Post;
 use App\Models\Resident;
 use App\Models\User;
@@ -24,7 +23,6 @@ class DashboardController extends Controller
             'pendingUsers' => User::where('status', 'pending')->count(),
             'newAdmissions' => Admission::where('status', 'new')->count(),
             'newMessages' => ContactMessage::where('status', 'new')->count(),
-            'images' => GalleryImage::count(),
             'posts' => Post::count(),
             'residents' => Resident::where('active', true)->count(),
         ]);

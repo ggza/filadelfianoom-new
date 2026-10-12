@@ -7,7 +7,6 @@
   <a class="tile @if($newAdmissions) tile--alert @endif" href="{{ route('admin.admissions.index', ['status' => 'new']) }}"><strong>{{ $newAdmissions }}</strong><span>új jelentkezés</span></a>
   <a class="tile @if($newMessages) tile--alert @endif" href="{{ route('admin.messages.index', ['status' => 'new']) }}"><strong>{{ $newMessages }}</strong><span>új üzenet</span></a>
   <a class="tile" href="{{ route('admin.residents.index') }}"><strong>{{ $residents }}</strong><span>aktív lakó</span></a>
-  <a class="tile" href="{{ route('admin.gallery.index') }}"><strong>{{ $images }}</strong><span>kép a galériában</span></a>
   <a class="tile" href="{{ route('admin.posts.index') }}"><strong>{{ $posts }}</strong><span>bejegyzés</span></a>
 </div>
 <section class="panel">
